@@ -6,7 +6,7 @@ import BackgroundDesktop from "../images/background-hero-desktop.jpg";
 
 const Hero = () => {
   return (
-    <section className="min-h-screen">
+    <section className="min-h-full md:min-h-auto">
       {/* Background Pink image for mobile and tablet */}
       <img
         className="absolute top-17 left-0 -z-10 h-screen  w-full object-cover lg:hidden "
@@ -15,7 +15,7 @@ const Hero = () => {
       />
       {/* Background pink for large screen */}
       <img
-        className="sm:hidden md:hidden lg:block lg:absolute lg:top-17 lg:left-0 lg:-z-10 lg:h-screen  lg:w-full lg:object-cover  "
+        className="hidden lg:block lg:absolute lg:top-17 lg:left-0 lg:-z-10 lg:min-h-[80vh] lg:w-full lg:object-cover xl:min-h-[50vh] xl:h-[70%]  "
         src={BackgroundDesktop}
         alt="background-hero"
       />
@@ -24,22 +24,24 @@ const Hero = () => {
         return (
           <div
             key={h.id}
-            className="flex flex-col pt-16 justify-center min-h-[calc(100vh-4.25rem)] text-center lg:flex-row lg:items-center"
+            className="flex flex-col pt-16 justify-center min-h-[calc(100vh-4.25rem)] text-center lg:min-h-[calc(70vh-4.25rem)] lg:flex-row lg:items-center"
           >
-            <div className="px-12 lg:px-12">
+            <div className="px-12 lg:px-12 xl:pl-[22rem]">
               <span className="block mb-6 font-manuscript text-3xl/[1.5] text-pink ">
                 {h.title}
               </span>
-              <p>{h.text}</p>
+              <p className="md:max-w-[22em] md:m-auto lg:max-w-[22em] lg:m-auto">
+                {h.text}
+              </p>
               <Link to="" className="cta mt-4">
-                BOOK NOW 2
+                BOOK NOW
               </Link>
             </div>
             {/* Photo on the right for the larger screen */}
             <img
               src={h.img}
               alt="photos"
-              className="mt-8 max-w-30rem w-full mx-auto lg:max-w-41rem "
+              className="mt-8 max-w-30rem w-full mx-auto lg:max-w-41rem lg:mt-0 "
             />
           </div>
         );

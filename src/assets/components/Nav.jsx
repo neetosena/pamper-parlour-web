@@ -17,7 +17,7 @@ const Nav = () => {
   };
 
   return (
-    <section className="md:m-auto md:max-w-4xl md: px-8 md:h-auto md:flex md:justify-between">
+    <section className="md:m-auto md:max-w-[1000px] md: px-8 md:h-auto md:flex md:justify-between">
       <div className="flex justify-between p-4">
         {/* Logo */}
         <img className="max-w-xs w-44" src={Logo} alt="Pamper Parlour" />

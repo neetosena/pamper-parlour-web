@@ -8,13 +8,17 @@ export default {
     },
     extend: {
       maxWidth: {
+        "22rem": "22rem",
         "30rem": "30rem",
         "41rem": "41rem",
         "850px": "850px",
       },
+      spacing: {
+        "22rem": "22rem",
+      },
       colors: {
         pink: "#C30082",
-        "light-pink": "#FFE1EA",
+        "light-pink": "#FACAD9",
         black: "#1F1F1F",
         gold: "#A28A21",
       },
