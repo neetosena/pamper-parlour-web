@@ -32,7 +32,7 @@ const Hero = () => {
               </span>
               <p>{h.text}</p>
               <Link to="" className="cta mt-4">
-                BOOK NOW
+                BOOK NOW 2
               </Link>
             </div>
             {/* Photo on the right for the larger screen */}
