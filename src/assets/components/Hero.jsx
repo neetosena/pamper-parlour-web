@@ -15,7 +15,7 @@ const Hero = () => {
       />
       {/* Background pink for large screen */}
       <img
-        className="hidden lg:block lg:absolute lg:top-17 lg:left-0 lg:-z-10 lg:min-h-[80vh] lg:w-full lg:object-cover xl:min-h-[50vh] xl:h-[70%]  "
+        className="hidden lg:block lg:absolute lg:top-17 lg:left-0 lg:-z-10 lg:min-h-[80vh] lg:w-full lg:object-cover xl:min-h-[50vh] xl:h-[90vh]  "
         src={BackgroundDesktop}
         alt="background-hero"
       />
