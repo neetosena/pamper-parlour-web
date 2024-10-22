@@ -19,6 +19,8 @@ export default {
       colors: {
         pink: "#C30082",
         "light-pink": "#FACAD9",
+        "lighter-pink": "#FFF0F4",
+        "middle-pink": "#F69FBA",
         black: "#1F1F1F",
         gold: "#A28A21",
       },
