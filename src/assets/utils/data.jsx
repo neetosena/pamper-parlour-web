@@ -102,6 +102,8 @@ export const packagesInfo = [
 export const packages = [
   {
     id: 1,
+    primaryColor: "#C30082",
+    secondaryColor: "#FFF0F4",
     title: "Standard",
     price: "€250",
     info: ["For 10 children", "€12.50 per extra child"],
@@ -115,6 +117,8 @@ export const packages = [
 
   {
     id: 2,
+    primaryColor: "#423FD7",
+    secondaryColor: "#EBEBFF",
     title: "Special Offer",
     price: "€260",
     info: ["For 10 children", "€12.50 per extra child"],
@@ -128,6 +132,8 @@ export const packages = [
   },
   {
     id: 3,
+    primaryColor: "#716F71",
+    secondaryColor: "#F0F0F0",
     title: "Silver",
     price: "€300",
     info: ["For 10 children", "€12.50 per extra child"],
@@ -142,6 +148,8 @@ export const packages = [
   },
   {
     id: 4,
+    primaryColor: "#A28A21",
+    secondaryColor: "#F9F5E7",
     title: "Gold",
     price: "€350",
     info: ["For 10 children", "€15 per extra child"],
@@ -171,3 +179,50 @@ export const pagination = (arr, items) => {
   return newArr;
 };
 //------------------------------------------------------//
+
+// /*<div
+//   style={{ width: "400%" }}
+//   className="mt-[3em] w-[100vw] flex gap-[2em] items-start "
+// >
+//   {/* Card container */}
+//   {packages.map((pack) => {
+//     return (
+//       // Card inner container
+//       <div
+//         key={pack.id}
+//         className="flex flex-col justify-center bg-white rounded-[2em] overflow-hidden"
+//       >
+//         <p className="p-[1em] bg-pink text-center text-white font-semibold ">
+//           {pack.title}
+//         </p>
+//         <div className="py-[1em] text-center bg-lighter-pink">
+//           <p className="text-[2.2rem] font-bold text-pink">{pack.price}</p>
+//           <span className="block">{pack.info[0]}</span>
+
+//           <span className="mt-[-1.2em] block font-bold">{pack.info[1]}</span>
+//         </div>
+//         <div>
+//           {pack.items.map((item, index) => {
+//             return (
+//               <div
+//                 key={index}
+//                 className={`p-[1em] flex text-left ${index % 2 === 0 ? "odd:bg-transparent" : "even:bg-lighter-pink"}`}
+//               >
+//                 <div className="basis-[20%] text-[1.5rem] text-green">
+//                   <FaCheck />
+//                 </div>
+//                 <p className="basis-[80%]">{item}</p>
+//               </div>
+//             );
+//           })}
+//         </div>
+//         <button
+//           className="btn-enquire w-[max-content] my-[2em] self-center "
+//           type="button"
+//         >
+//           ENQUIRE NOW
+//         </button>
+//       </div>
+//     );
+//   })}
+// /*</div>;*/

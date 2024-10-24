@@ -1,12 +1,41 @@
+import { useState } from "react";
 import Title from "./Title";
 import { packagesInfo, packages } from "../utils/data";
-import { Link } from "react-router-dom";
-import { FaCheck } from "react-icons/fa";
+
+import PackageCard from "./PackageCard";
+import Paginate from "./Paginate";
 
 const Packages = () => {
+  const [index, setIndex] = useState(0);
+
+  const length = packages.length;
+
+  //------- All this function is for Mobile ---------//
+  //--------------------------------------------------//
+  const handleClickPage = (index_) => {
+    setIndex(index_);
+  };
+
+  const handleClickPageBack = () => {
+    if (index <= 0) {
+      setIndex(0);
+    } else {
+      setIndex(index - 1);
+    }
+  };
+
+  const handleClickPageForward = () => {
+    if (index >= packages.length - 1) {
+      console.log("here", packages.length);
+      setIndex(packages.length - 1);
+    } else {
+      setIndex(index + 1);
+    }
+  };
+
   return (
     // Packages top information
-    <div className="py-[4em] px-[2em] bg-light-pink overflow-scroll">
+    <div className="py-[4em] px-[2em] bg-light-pink ">
       <Title title="Packages" />
       <div className="mt-[4em] flex justify-between">
         {packagesInfo.map((packageInfo) => {
@@ -34,56 +63,24 @@ const Packages = () => {
           <strong> €20 across all packages</strong>
         </p>
       </div>
+      {/* Card Container */}
       <div
-        style={{ width: "400%" }}
-        className="mt-[3em] w-[100vw] flex gap-[2em] items-start "
+        style={{
+          width: `calc(${length * 100}% + (${length - 1} * 1em)`,
+          transform: `translateX(calc(-${index * 25}% - (${index * 0.5}em)))`,
+        }}
+        className="relative mt-[3em] w-[100vw] flex gap-[2em] items-start transition-transform duration-500 ease-in-out "
       >
-        {/* Card container */}
         {packages.map((pack) => {
-          return (
-            // Card inner container
-            <div
-              key={pack.id}
-              className="flex flex-col justify-center bg-white rounded-[2em] overflow-hidden"
-            >
-              <p className="p-[1em] bg-pink text-center text-white font-semibold ">
-                {pack.title}
-              </p>
-              <div className="py-[1em] text-center bg-lighter-pink">
-                <p className="text-[2.2rem] font-bold text-pink">
-                  {pack.price}
-                </p>
-                <span className="block">{pack.info[0]}</span>
-
-                <span className="mt-[-1.2em] block font-bold">
-                  {pack.info[1]}
-                </span>
-              </div>
-              <div>
-                {pack.items.map((item, index) => {
-                  return (
-                    <div
-                      key={index}
-                      className={`p-[1em] flex text-left ${index % 2 === 0 ? "odd:bg-transparent" : "even:bg-lighter-pink"}`}
-                    >
-                      <div className="basis-[20%] text-[1.5rem] text-green">
-                        <FaCheck />
-                      </div>
-                      <p className="basis-[80%]">{item}</p>
-                    </div>
-                  );
-                })}
-              </div>
-              <button
-                className="btn-enquire w-[max-content] my-[2em] self-center "
-                type="button"
-              >
-                ENQUIRE NOW
-              </button>
-            </div>
-          );
+          return <PackageCard key={pack.id} packages={pack} />;
         })}
       </div>
+      <Paginate
+        pages={packages}
+        handleClickPage={handleClickPage}
+        handleClickPageBack={handleClickPageBack}
+        handleClickPageForward={handleClickPageForward}
+      />
     </div>
   );
 };
