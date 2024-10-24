@@ -12,9 +12,11 @@
   line-height: 1.5;
 }
 
-a.cta {
+a.cta,
+.btn-enquire {
   display: inline-block;
   padding: 0.5em 2em;
+  font-weight: 600;
   border: 2px solid theme("colors.pink");
   color: theme("colors.pink");
   border-radius: 0.5em;
@@ -22,4 +24,13 @@ a.cta {
 
 span {
   line-height: 3;
+}
+
+h4 {
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
+.packages-info {
+  list-style-type: disc;
 }

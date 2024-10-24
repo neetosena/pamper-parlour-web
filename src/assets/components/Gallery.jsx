@@ -9,7 +9,7 @@ import { IoIosArrowForward } from "react-icons/io";
 const Gallery = () => {
   const [index, setIndex] = useState(0);
   const [changeColor, setChangeColor] = useState(false);
-  const [images, setImages] = useState(pagination(gallery));
+  const [images, setImages] = useState(pagination(gallery, 6));
   const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
 
   // Adjust index based on the screen size

@@ -52,7 +52,7 @@ export const testimonials = [
     name: "MagQiu",
     rating: 4,
     message:
-      "Many thanks to Rachel for looking after ar organizing memorable experience for my years old daughter and her friends! Very accommodating and all around great dealing",
+      "Many thanks to Rachel for looking after ar organizing memorable experience for my years old daughter and her friends! Very accommodating and all around great dealing. It's so different from all the play centres out there and they are left with the best memories. Highly recommend this place.",
   },
   {
     id: 2,
@@ -73,12 +73,93 @@ export const testimonials = [
     name: "Laura Grehan",
     rating: 4,
     message:
-      "My daughter had her 8th birthday party here and as we were leaving asked if she could have her next birthday party here next year. It was fantastic. The room is so lovely and girly and the girls all just loved being pampered. I received so many txt from parents saying their daughter wants to have their party here too. My daughter's favourite part was the foot spa, some girls preferred their nails and hair done and others loved the champagne. It's so different from all the play centres out there and they are left with the best memories. Highly recommend this place.",
+      "My daughter had her 8th birthday party here and as we were leaving asked if she could have her next birthday party here next year. It was fantastic. The room is so lovely and girly and the girls all just loved being pampered. I received so many txt from parents saying their daughter wants to have their party here too. My daughter's favourite part was the foot spa, some girls preferred their nails and hair done and others loved the champagne.",
   },
 ];
 
-export const pagination = (arr) => {
-  const items = 6;
+export const packagesInfo = [
+  {
+    id: 1,
+    title: "Birthday Girl",
+    text: [
+      "Footspa",
+      "Facemask",
+      "Tattoo",
+      "Fingernails Painted",
+      "Perfume",
+      "Hairstyle",
+      "Facegems",
+      "Gift",
+    ],
+  },
+  {
+    id: 2,
+    title: "Guests",
+    text: ["Footspa", "Facemask", "Tattoo", "Fingernails Painted", "Perfume"],
+  },
+];
+
+export const packages = [
+  {
+    id: 1,
+    title: "Standard",
+    price: "€250",
+    info: ["For 10 children", "€12.50 per extra child"],
+    items: [
+      "Kids Champagne",
+      "Chocolate Fondue with Marshmallows",
+      "Juice and Nibbles",
+      "Satin Robe and Headband, to be given back at the end of treatments",
+    ],
+  },
+
+  {
+    id: 2,
+    title: "Special Offer",
+    price: "€260",
+    info: ["For 10 children", "€12.50 per extra child"],
+    items: [
+      "Kids Champagne",
+      "Chocolate Fondue with Marshmallows",
+      "Juice and Nibbles",
+      "Satin Robe and Headband, to be given back at the end of treatments",
+      "Pizza and Chips",
+    ],
+  },
+  {
+    id: 3,
+    title: "Silver",
+    price: "€300",
+    info: ["For 10 children", "€12.50 per extra child"],
+    items: [
+      "Kids Champagne",
+      "Chocolate Fondue with Marshmallows",
+      "Juice and Nibbles",
+      "Satin Robe and Headband, to be given back at the end of treatments",
+      "Donut Wall",
+      "Party Bags",
+    ],
+  },
+  {
+    id: 4,
+    title: "Gold",
+    price: "€350",
+    info: ["For 10 children", "€15 per extra child"],
+    items: [
+      "Kids Champagne",
+      "Chocolate Fondue with Marshmallows",
+      "Juice and Nibbles",
+      "Satin Robe and Headband, to be given back at the end of treatments",
+      "Donut Wall",
+      "Party Bags",
+      "Pizza, Chips or Wedges, Fruit Juice and Sauces Supplied",
+    ],
+  },
+];
+
+// Function to organise item per page for desktop only
+
+export const pagination = (arr, items) => {
   const totalPage = Math.ceil(arr.length / items);
 
   const newArr = Array.from({ length: totalPage }, (_, index) => {
@@ -89,3 +170,4 @@ export const pagination = (arr) => {
 
   return newArr;
 };
+//------------------------------------------------------//

@@ -23,6 +23,7 @@ export default {
         "middle-pink": "#F69FBA",
         black: "#1F1F1F",
         gold: "#A28A21",
+        green: "#51BA2C",
       },
     },
   },
