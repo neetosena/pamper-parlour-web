@@ -25,7 +25,7 @@ const PackageCard = ({ packages }) => {
         >
           {packages.price}
         </p>
-        <span className="block">{packages.info[0]}</span>
+        <span className="block mt-[-1em]">{packages.info[0]}</span>
 
         <span className="mt-[-1.2em] block font-bold">{packages.info[1]}</span>
       </div>
@@ -39,12 +39,12 @@ const PackageCard = ({ packages }) => {
                 background:
                   index % 2 === 0 ? "transparent" : packages.secondaryColor,
               }}
-              className={`p-[1em] flex text-left `}
+              className={`py-[0.5em] px-[1em] flex text-left `}
             >
-              <div className="basis-[20%] text-[1.5rem] text-green">
+              <div className="mr-[1em] text-[1.5rem] text-green">
                 <FaCheck />
               </div>
-              <p className="basis-[80%]">{item}</p>
+              <p>{item}</p>
             </div>
           );
         })}
