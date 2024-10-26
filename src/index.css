@@ -4,6 +4,11 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+  --gold: #a28a21;
+  --pink: #c30082;
+}
+
 * {
   box-sizing: border-box;
   margin: 0;
