@@ -5,6 +5,9 @@ import { pagination, testimonials } from "../utils/data";
 import { BiSolidQuoteAltLeft } from "react-icons/bi";
 import { IoStar } from "react-icons/io5";
 
+import { IoIosArrowBack } from "react-icons/io";
+import { IoIosArrowForward } from "react-icons/io";
+
 const Testimonials = () => {
   const [index, setIndex] = useState(0);
   const [changeColor, setChangeColor] = useState(false);
@@ -14,14 +17,16 @@ const Testimonials = () => {
 
   // Adjust index based on the screen size
   useEffect(() => {
-    const handleResize = () => {
-      setIsMobile(window.innerWidth < 768);
-      setIndex(0); //reset the index when switching between mobile and desktop
-    };
-    window.addEventListener("resize", handleResize);
+    if (index < length) {
+      setIndex(index); //reset the index when switching between mobile and desktop
+    } else {
+      setIndex(0);
+    }
 
-    return () => window.removeEventListener("resize", handleResize);
-  }, []);
+    // window.addEventListener("resize", handleResize);
+
+    // return () => window.removeEventListener("resize", handleResize);
+  }, [isMobile]);
 
   //------- All this function is for Dektop ---------//
   //--------------------------------------------------//
@@ -36,6 +41,22 @@ const Testimonials = () => {
   //------- All this function is for Mobile ---------//
   //--------------------------------------------------//
 
+  const handleForwardClick = () => {
+    if (index >= testimonials.length - 1) {
+      setIndex(0);
+    } else {
+      setIndex(index + 1);
+    }
+  };
+
+  const handleBackClick = () => {
+    if (index <= 0) {
+      setIndex(testimonials.length - 1);
+    } else {
+      setIndex(index - 1);
+    }
+  };
+
   const handleBulletClick = (id) => {
     setIndex(id);
     if (id === index) {
@@ -46,14 +67,14 @@ const Testimonials = () => {
   //--------------------------------------------------//
 
   return (
-    <div className=" py-[4em] px-[2em] bg-lighter-pink md:py-[8em]">
+    <div className=" py-[4em] px-[2em] bg-lighter-pink md:py-[8em] overflow-scroll">
       <div className="mb-[4em] md:mb-[8em]">
         <Title title="Testimonials" />
       </div>
       {/* ----------------------------Render only on Mobile------------------------ */}
       {/* Testimonial Card Container */}
       {isMobile && (
-        <div>
+        <div className="relative">
           <div
             style={{
               width: `calc(${length * 100}% + (${length - 1} * 2em)`,
@@ -89,6 +110,21 @@ const Testimonials = () => {
               );
             })}
           </div>
+          {/* Arrow left for mobile */}
+          {/* <div
+            className="absolute top-[50%] translate-y-[-50%] lelf-[0] text-middle-pink text-[2rem] z-20"
+            onClick={handleBackClick}
+          >
+            <IoIosArrowBack />
+          </div> */}
+
+          {/* Arrow right for mobile  */}
+          {/* <div
+            className="absolute top-[50%] translate-y-[-50%] right-[76%] text-middle-pink text-[2rem] z-20"
+            onClick={handleForwardClick}
+          >
+            <IoIosArrowForward />
+          </div> */}
           {/* Bullet point */}
           <div className="m-auto mt-[2em] w-[12em] flex justify-between">
             {testimonials.map((_, i) => {
