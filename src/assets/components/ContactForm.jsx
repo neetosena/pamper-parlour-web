@@ -73,7 +73,7 @@ const ContactForm = () => {
       >
         {({ isSubmitting }) => (
           <Form
-            name="contact"
+            name="pamper-parlour-contact"
             method="POST"
             data-netlify="true"
             netlify-honeypot="bot-field"
