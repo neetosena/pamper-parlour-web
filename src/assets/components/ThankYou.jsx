@@ -7,9 +7,11 @@ const ThankYou = () => {
   const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
-    const timer = setTimeout(() => setIsVisible(true), 500);
-    return () => clearTimeout(timer);
+    // const timer = setTimeout(() => setIsVisible(true), 500);
+    // return () => clearTimeout(timer);
   }, []);
+
+  console.log(isVisible);
 
   return (
     <Wrapper className={isVisible ? "visible" : ""}>
@@ -32,7 +34,7 @@ const Wrapper = styled.div`
   left: 0;
   width: 100vw;
   height: 100vh;
-  color: var(--lightGray);
+
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -79,9 +81,11 @@ const Wrapper = styled.div`
 
   .icon-sent {
     font-size: 3rem;
+    color: var(--gold);
   }
   h2 {
-    font-size: 1%.5;
-    font-family: var(--headingFont);
+    color: var(--gold);
+    font-size: 1.5rem;
+    font-weight: 600;
   }
 `;

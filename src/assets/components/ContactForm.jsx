@@ -128,7 +128,7 @@ const ContactForm = () => {
               />
             </div>
 
-            <button type="submit" disable={isSubmitting}>
+            <button type="submit" disable={isSubmitting.toString()}>
               {isSubmitting ? "SENDING..." : "SEND"}
             </button>
           </Form>
