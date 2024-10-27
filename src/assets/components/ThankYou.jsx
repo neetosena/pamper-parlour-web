@@ -7,8 +7,8 @@ const ThankYou = () => {
   const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
-    // const timer = setTimeout(() => setIsVisible(true), 500);
-    // return () => clearTimeout(timer);
+    const timer = setTimeout(() => setIsVisible(true), 500);
+    return () => clearTimeout(timer);
   }, []);
 
   console.log(isVisible);

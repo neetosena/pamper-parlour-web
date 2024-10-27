@@ -40,6 +40,8 @@ const ContactForm = () => {
         resetForm();
         setSubmitting(false);
         setSubmitted(true);
+        window.scrollTo({ top: 0, behavior: "smooth" });
+
         setTimeout(() => setSubmitted(false), 5000);
 
         // navigate("/thank-you");
@@ -144,7 +146,6 @@ const Wrapper = styled.div`
   div {
     position: relative;
   }
-
   //colour the background of the ThankYou component
   .container-Thank-you-message {
     position: absolute;
