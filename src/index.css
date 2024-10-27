@@ -53,3 +53,8 @@ h4 {
 .packages-info {
   list-style-type: disc;
 }
+
+.bg-pink,
+.bg-light-pink {
+  transition: background-color 0.3s ease-in-out;
+}

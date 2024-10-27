@@ -12,15 +12,24 @@ const Gallery = () => {
   const [images, setImages] = useState(pagination(gallery, 6));
   const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
 
+  const debouce = (func, delay) => {
+    let timeout;
+    return (...args) => {
+      clearTimeout(timeout);
+      timeout = setTimeout(() => func(...args), delay);
+    };
+  };
+
   // Adjust index based on the screen size
   useEffect(() => {
     const handleResize = () => {
       setIsMobile(window.innerWidth < 768);
       setIndex(0); //reset the index when switching between mobile and desktop
     };
+    const debounceResize = debouce(handleResize, 100);
     window.addEventListener("resize", handleResize);
 
-    return () => window.removeEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", debounceResize);
   }, []);
 
   //------- All this function is for Desktop ---------//
@@ -133,7 +142,8 @@ const Gallery = () => {
             </div>
             {/* Gallery images */}
             <img
-              className="w-[100%] h-[100%] object-cover"
+              className="w-[100%] h-[100%] object-cover transition-transform duration-500 ease-in-out"
+              loading="lazy"
               key={gallery[index].id}
               src={gallery[index].img}
               alt={gallery[index].alt}
