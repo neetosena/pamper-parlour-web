@@ -28,7 +28,7 @@ const Nav = () => {
       </div>
       {/* Mobile and Desktop Nav combined */}
       <nav
-        className={`absolute top-0 left-0 w-screen h-screen flex flex-col justify-around items-center bg-light-pink transition-transform ease-in-out delay-75 ${showMenu ? "translate-x-0" : "translate-x-full"} md:flex-row md:basis-full md:relative md:translate-x-0 md:bg-transparent md:h-auto md:w-auto md: border-red-600`}
+        className={`fixed top-0 left-0 w-screen h-screen flex flex-col justify-around items-center z-[999] bg-light-pink transition-transform ease-in-out delay-75 ${showMenu ? "translate-x-0" : "translate-x-full"} md:flex-row md:basis-full md:relative md:translate-x-0 md:bg-transparent md:h-auto md:w-auto md: border-red-600`}
       >
         {/* Close Icon for Mobile (Hidden for larger screens) */}
         <div className="absolute top-9 right-4 md:hidden" onClick={handleClick}>
@@ -45,20 +45,29 @@ const Nav = () => {
           {navLinks.map((link) => {
             return (
               <li key={link.id} className="m-12 text-center font-light md:m-0">
-                <NavLink to="#">{link.name}</NavLink>
+                <NavLink to="#" className="cursor-pointer hover:text-pink">
+                  {link.name}
+                </NavLink>
               </li>
             );
           })}
         </ul>
         {/* Phone, Email and Location for mobile (Hidden for larger screens) */}
         <div className="flex w-3/5 mb-8 justify-between h-auto md:hidden">
-          <a href="tel:+3532371305">
+          <a href="tel:+3532371305" className="hover:opacity-[0.8]">
             <FaPhone className="text-5xl p-3 bg-white text-pink" />
           </a>
-          <a href="mailto:kidspamperparlour989@gmail.com">
+          <a
+            href="mailto:kidspamperparlour989@gmail.com"
+            className="hover:opacity-[0.8]"
+          >
             <IoIosMail className="text-5xl p-3 bg-white text-pink" />
           </a>
-          <a href="https://maps.app.goo.gl/ZhKmXpsRP6HZJA7RA" target="_blank">
+          <a
+            href="https://maps.app.goo.gl/sq9TXGsi949A7exb7"
+            target="_blank"
+            className="hover:opacity-[0.8]"
+          >
             <IoMdPin className="text-5xl p-3 bg-white text-pink" />
           </a>
         </div>

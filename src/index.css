@@ -7,6 +7,9 @@
 :root {
   --gold: #a28a21;
   --pink: #c30082;
+  --lighter-pink: #ffe0ea;
+  --lightest-pink: #fff0f4;
+  --middle-pink: #f69fba;
 }
 
 * {
@@ -25,6 +28,17 @@ a.cta,
   border: 2px solid theme("colors.pink");
   color: theme("colors.pink");
   border-radius: 0.5em;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+
+a.cta:focus,
+.btn-enquire:focus,
+a.cta:hover,
+.btn-enquire:hover {
+  background: theme("colors.gold");
+  color: white;
+  border: 2px solid theme("colors.gold");
 }
 
 span {

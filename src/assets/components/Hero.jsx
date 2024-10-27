@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { hero } from "../utils/data";
 
-import BackgroundMobile from "../images/background-hero-mobile.jpg";
+import BackgroundMobile from "../images/background-hero-mobile-2.jpg";
 import BackgroundDesktop from "../images/background-hero-desktop.jpg";
 
 const Hero = () => {
@@ -9,13 +9,13 @@ const Hero = () => {
     <section className="min-h-full md:min-h-auto">
       {/* Background Pink image for mobile and tablet */}
       <img
-        className="absolute top-17 left-0 -z-10 h-screen  w-full object-cover lg:hidden "
+        className="absolute top-17 left-0 -z-10  w-full object-cover md:hidden lg:hidden "
         src={BackgroundMobile}
         alt="background-hero"
       />
       {/* Background pink for large screen */}
       <img
-        className="hidden lg:block lg:absolute lg:top-17 lg:left-0 lg:-z-10 lg:min-h-[80vh] lg:w-full lg:object-cover xl:min-h-[50vh] xl:h-[90vh]  "
+        className="hidden md:block lg:block md:absolute md:top-17 md:left-0 md:-z-10 md:min-h-[80vh] md:w-full md:object-cover xl:min-h-[50vh] xl:h-[90vh]  "
         src={BackgroundDesktop}
         alt="background-hero"
       />
@@ -24,9 +24,9 @@ const Hero = () => {
         return (
           <div
             key={h.id}
-            className="flex flex-col pt-16 justify-center min-h-[calc(100vh-4.25rem)] text-center lg:min-h-[calc(70vh-4.25rem)] lg:flex-row lg:items-center"
+            className="flex flex-col pt-16 justify-center min-h-[calc(100vh-4.25rem)] text-center md:min-h-[calc(70vh-4.25rem)] md:flex-row md:items-center lg:max-w-[1600px] lg:m-auto"
           >
-            <div className="px-12 lg:px-12 xl:pl-[22rem]">
+            <div className="px-12 lg:px-12 xl:pl-[17rem]">
               <span className="block mb-6 font-manuscript text-3xl/[1.5] text-pink ">
                 {h.title}
               </span>

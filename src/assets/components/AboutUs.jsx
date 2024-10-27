@@ -16,7 +16,7 @@ const AboutUs = () => {
       <img
         src={BallonsDesktop}
         alt="background-ballons"
-        className="hidden md:block md:absolute md:top-[50%] md:translate-y-[-50%] md:left-[50%] md:translate-x-[-50%] md:max-w-[100vw] md:h-auto md:z-[-1] md:opacity-[0.6] xl:top-[60%] xl:w-[70%]"
+        className="hidden md:block md:absolute md:top-[50%] md:translate-y-[-50%] md:left-[50%] md:translate-x-[-50%] md:w-[100vw] md:h-auto md:z-[-1] md:opacity-[0.6] xl:top-[50%] xl:w-[70%] xl:h-[80vh] 2xl:max-h-[700px]"
       />
       <Title title={about.title} />
       {/* Inner Container for image + paragraph */}

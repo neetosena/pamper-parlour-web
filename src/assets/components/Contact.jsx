@@ -52,6 +52,9 @@ const Contact = () => {
 export default Contact;
 
 const Wrapper = styled.div`
+  .contact-container {
+    padding-bottom: 4em;
+  }
   .title-container {
     display: flex;
     justify-content: center;
