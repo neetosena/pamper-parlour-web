@@ -14,7 +14,9 @@ const Footer = () => {
     <Wrapper>
       <div className="footer-container">
         <div>
-          <img src={Logo} alt="logo" />
+          <Link to="/" className="cursor-pointer hover:opacity-[0.5]">
+            <img src={Logo} alt="logo" />
+          </Link>
           <div>
             <div className="social-container">
               <a href="tel:+353892371305">
