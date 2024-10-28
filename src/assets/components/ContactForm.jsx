@@ -6,6 +6,11 @@ import ThankYou from "./ThankYou";
 
 const ContactForm = () => {
   const [submitted, setSubmitted] = useState(false);
+  //   const [title, setTitle] = useState(packageTitle || "");
+
+  //   useEffect(() => {
+  //     setTitle(packageTitle);
+  //   }, [title]);
 
   const initialValues = {
     name: "",

@@ -21,10 +21,18 @@ const Footer = () => {
                 <BsFillTelephoneFill className="details-icon" />
                 +353 89 237 1305
               </a>
-              <a href="">
+              <a
+                href="https://www.facebook.com/thepamperparlour"
+                target="_blank"
+                rel="noreferrer"
+              >
                 <FaFacebookSquare />
               </a>
-              <a href="">
+              <a
+                href="https://www.instagram.com/thepamperparlour_/"
+                target="_blank"
+                rel="noreferrer"
+              >
                 <FaInstagramSquare />
               </a>
             </div>
