@@ -8,7 +8,7 @@ import Title from "./Title";
 
 const Contact = () => {
   return (
-    <Wrapper>
+    <Wrapper id="contact">
       <div className="title-container">
         <Title title="Contact" />
       </div>
@@ -52,6 +52,8 @@ const Contact = () => {
 export default Contact;
 
 const Wrapper = styled.div`
+  scroll-margin-top: 105.5px;
+
   .contact-container {
     padding-bottom: 4em;
   }

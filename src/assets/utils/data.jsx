@@ -9,12 +9,12 @@ import Gallery6 from "../images/PHOTO-2024-09-17-10-44-30-6.jpg";
 import Gallery7 from "../images/PHOTO-2024-09-17-10-44-30.jpg";
 
 export const navLinks = [
-  { id: 1, name: "Home" },
-  { id: 2, name: "About Us" },
-  { id: 3, name: "Gallery" },
-  { id: 4, name: "Testimonials" },
-  { id: 5, name: "Packages" },
-  { id: 6, name: "Contact" },
+  { id: 1, name: "Home", scrollTo: "home" },
+  { id: 2, name: "About Us", scrollTo: "about-us" },
+  { id: 3, name: "Gallery", scrollTo: "gallery" },
+  { id: 4, name: "Testimonials", scrollTo: "testimonials" },
+  { id: 5, name: "Packages", scrollTo: "packages" },
+  { id: 6, name: "Contact", scrollTo: "contact" },
 ];
 
 export const hero = [
@@ -106,7 +106,7 @@ export const packages = [
     secondaryColor: "#FFF0F4",
     title: "Standard",
     price: "€250",
-    info: ["For 10 children", "€12.50 per extra child"],
+    info: ["For 10 children", "€10 per extra child"],
     items: [
       "Kids Champagne",
       "Chocolate Fondue with Marshmallows",
@@ -164,6 +164,17 @@ export const packages = [
     ],
   },
 ];
+
+export const scrollToSection = (location) => {
+  let hash = location.hash ? location.hash.slice(1) : null;
+  let elem = hash ? document.getElementById(hash) : null;
+
+  if (elem) {
+    elem.scrollIntoView({ behavior: "smooth" });
+  } else {
+    window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
+  }
+};
 
 // Function to organise item per page for desktop only
 

@@ -15,7 +15,7 @@ const Hero = () => {
       />
       {/* Background pink for large screen */}
       <img
-        className="hidden md:block lg:block md:absolute md:top-17 md:left-0 md:-z-10 md:min-h-[80vh] md:w-full md:object-cover xl:min-h-[50vh] xl:h-[90vh]  "
+        className="hidden md:block lg:block md:absolute md:top-[105.5px] md:left-0 md:-z-10 md:min-h-[80vh] md:w-full md:object-cover xl:min-h-[50vh] xl:h-[90vh]  "
         src={BackgroundDesktop}
         alt="background-hero"
       />
@@ -24,7 +24,7 @@ const Hero = () => {
         return (
           <div
             key={h.id}
-            className="flex flex-col pt-16 justify-center min-h-[calc(100vh-4.25rem)] text-center md:min-h-[calc(70vh-4.25rem)] md:flex-row md:items-center lg:max-w-[1600px] lg:m-auto"
+            className="mt-[6em] flex flex-col pt-16 justify-center min-h-[calc(100vh-4.25rem)] text-center md:min-h-[calc(70vh-4.25rem)] md:h-[90vh] md:flex-row md:items-center lg:max-w-[1600px] lg:m-auto"
           >
             <div className="px-12 lg:px-12 xl:pl-[17rem]">
               <span className="block mb-6 font-manuscript text-3xl/[1.5] text-pink ">
@@ -33,7 +33,7 @@ const Hero = () => {
               <p className="md:max-w-[22em] md:m-auto lg:max-w-[22em] lg:m-auto">
                 {h.text}
               </p>
-              <Link to="" className="cta mt-4">
+              <Link to="#packages" className="cta mt-4">
                 BOOK NOW
               </Link>
             </div>

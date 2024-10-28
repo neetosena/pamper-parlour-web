@@ -2,15 +2,27 @@ import { useState, useEffect } from "react";
 import Title from "./Title";
 import { gallery, pagination } from "../utils/data";
 import Paginate from "./Paginate";
+import SlideShow from "./SlideShow";
 
 import { IoIosArrowBack } from "react-icons/io";
 import { IoIosArrowForward } from "react-icons/io";
+import styled from "styled-components";
 
 const Gallery = () => {
   const [index, setIndex] = useState(0);
   const [changeColor, setChangeColor] = useState(false);
   const [images, setImages] = useState(pagination(gallery, 6));
   const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
+
+  const [currentIndex, setCurrentIndex] = useState(0);
+
+  const [showSlide, setShowSlide] = useState({});
+
+  const handleClick = (i, slideShowKey, index) => {
+    setCurrentIndex(i);
+    setShowSlide({ [slideShowKey]: true });
+    console.log(showSlide);
+  };
 
   const debouce = (func, delay) => {
     let timeout;
@@ -86,7 +98,10 @@ const Gallery = () => {
   //-------------------------------------------------//
 
   return (
-    <section className="py-[4em] bg-middle-pink xl:py-[8em]">
+    <section
+      id="gallery"
+      className="scroll-mt-[105.5px] py-[4em] bg-middle-pink xl:py-[8em]"
+    >
       <Title title="Gallery" />
 
       {/* ----------------Gallery for Tablet and Desktop---------------- */}
@@ -103,6 +118,7 @@ const Gallery = () => {
                     src={image.img}
                     alt={image.alt}
                     className="max-w-[100%] w-[100%] h-[100%] object-cover"
+                    onClick={(i) => handleClick(i, image.id, index)}
                   />
                 </div>
               );
@@ -163,7 +179,31 @@ const Gallery = () => {
           </div>
         </div>
       )}
+
+      {/* <Wrapper>
+        <SlideShow
+          image={gallery[index]}
+          setShowSlide={setShowSlide}
+          index={currentIndex}
+          setIndex={setCurrentIndex}
+          totalImages={gallery.length}
+          slideShowKey={Object.keys(showSlide)}
+        />
+      </Wrapper> */}
     </section>
   );
 };
 export default Gallery;
+
+const Wrapper = styled.div`
+  //style the div that contains the SlideShow Component
+
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.9);
+  transform: translate(-50%, -50%);
+  z-index: 2;
+`;

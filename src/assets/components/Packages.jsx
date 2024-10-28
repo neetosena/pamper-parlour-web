@@ -11,7 +11,10 @@ const Packages = () => {
 
   return (
     // Packages top information
-    <div className="py-[4em] px-[2em] bg-light-pink md:py-[8em] ">
+    <div
+      id="packages"
+      className="scroll-mt-[105.5px] py-[4em] px-[2em] bg-light-pink md:py-[8em] "
+    >
       <Title title="Packages" />
       <div className="mt-[4em] flex  justify-between md:max-w-[1000px] md:mx-[auto] ">
         {packagesInfo.map((packageInfo) => {

@@ -49,7 +49,7 @@ const Footer = () => {
             {navLinks.map((link) => {
               return (
                 <li key={link.id}>
-                  <Link to="#">
+                  <Link to={`#${link.scrollTo}`}>
                     {"> "}
                     {link.name}
                   </Link>
@@ -57,7 +57,10 @@ const Footer = () => {
               );
             })}
           </ul>
-          <a className="download-link" href="#">
+          <a
+            className="download-link"
+            href="/download/pamper_parlour_parental_and_consent_waiver.docx"
+          >
             <FaCloudDownloadAlt className="details-icon" />
             Parental and Consent Waiver
           </a>

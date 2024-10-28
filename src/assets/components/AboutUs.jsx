@@ -5,7 +5,10 @@ import Title from "./Title";
 
 const AboutUs = () => {
   return (
-    <section className="relative py-[4em] px-[2em] bg-light-pink z-[0] md:py-[8em]">
+    <section
+      id="about-us"
+      className="scroll-mt-[105.5px] relative py-[4em] px-[2em] bg-light-pink z-[0] md:py-[8em]"
+    >
       {/* Ballons just for mobile */}
       <img
         src={BallonsMobile}

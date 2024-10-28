@@ -67,7 +67,10 @@ const Testimonials = () => {
   //--------------------------------------------------//
 
   return (
-    <div className=" py-[4em] px-[2em] bg-lighter-pink md:py-[8em] ">
+    <div
+      id="testimonials"
+      className=" scroll-mt-[105.5px] py-[4em] px-[2em] bg-lighter-pink md:py-[8em] "
+    >
       <div className="mb-[4em] md:mb-[8em]">
         <Title title="Testimonials" />
       </div>
