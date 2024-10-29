@@ -43,7 +43,7 @@ const Footer = () => {
               kidspamperparlour989@gmail.com
             </a>
 
-            <p>The Dance Factory Dublin, The Pamper Parlour</p>
+            <p>The Pamper Parlour, The Dance Factory Dublin</p>
             <a
               href="https://maps.app.goo.gl/zzXKzeFJLGqJTFVf7"
               target="_blank"

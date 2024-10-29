@@ -21,6 +21,7 @@ const Packages = () => {
           return (
             <div key={packageInfo.id} className="basis-[40%] md:basis-[40%]">
               <h4 className="mb-[0.5em]">{packageInfo.title}</h4>
+
               <ul className="ml-[1em] md:flex md:flex-wrap gap-x-[2em]">
                 {packageInfo.text.map((text, index) => {
                   return (

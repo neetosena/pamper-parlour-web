@@ -10,6 +10,7 @@ import Footer from "../components/Footer";
 import { useLocation } from "react-router-dom";
 import { scrollToSection } from "../utils/data";
 import { useEffect } from "react";
+import Invitation from "../components/Invitation";
 
 const Home = () => {
   const location = useLocation();
@@ -25,6 +26,7 @@ const Home = () => {
       <AboutUs />
       <Gallery />
       <Testimonials />
+      <Invitation />
       <Packages />
       <Contact />
       <Footer />

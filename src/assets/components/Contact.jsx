@@ -26,7 +26,7 @@ const Contact = () => {
           </div>
 
           <p className="contact-dance-factory">
-            The Dance Factory Dublin, The Pamper Parlour
+            The Pamper Parlour, The Dance Factory Dublin
           </p>
           <p>2d Century Business Park, Finglas, Dublin 11, D11 VP46</p>
 

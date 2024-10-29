@@ -122,6 +122,7 @@ export const packages = [
     title: "Special Offer",
     price: "€260",
     info: ["For 10 children", "€12.50 per extra child"],
+    info2: "Monday - Thursday Excluding Bank Holidays",
     items: [
       "Kids Champagne",
       "Chocolate Fondue with Marshmallows",
@@ -164,6 +165,8 @@ export const packages = [
     ],
   },
 ];
+
+// Function to scroll to the section
 
 export const scrollToSection = (location) => {
   let hash = location.hash ? location.hash.slice(1) : null;

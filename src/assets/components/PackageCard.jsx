@@ -14,6 +14,11 @@ const PackageCard = ({ packages, handleEnquireClick }) => {
         className={`p-[1em] text-center text-white font-semibold`}
       >
         {packages.title}
+        {packages.info2 && (
+          <span className="inline-block text-[0.9rem] font-normal leading-[1.5] mt-[0.3em]">
+            {packages.info2}
+          </span>
+        )}
       </p>
       {/* Packages price */}
       <div
@@ -60,7 +65,6 @@ const PackageCard = ({ packages, handleEnquireClick }) => {
           document
             .querySelector("#contact")
             .scrollIntoView({ behavior: "smooth" });
-          handleEnquireClick(packages.title);
         }}
         data-package-title={`${packages.title} .......€${packages.price}`}
       >
