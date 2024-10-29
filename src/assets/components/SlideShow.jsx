@@ -1,14 +1,7 @@
 import styled from "styled-components";
-import { IoIosClose } from "react-icons/io";
+import { IoIosClose, IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
 
-const SlideShow = ({
-  image,
-  setShowSlide,
-  index,
-  setIndex,
-  totalImages,
-  slideShowKey,
-}) => {
+const SlideShow = ({ image, setIndex, totalImages, handleClose }) => {
   const handleLeftClick = () => {
     setIndex((prevState) => (prevState - 1 + totalImages) % totalImages);
   };
@@ -17,19 +10,19 @@ const SlideShow = ({
     setIndex((prevState) => (prevState + 1) % totalImages);
   };
 
-  const haldleClose = () => {
-    setShowSlide({ [slideShowKey]: false });
-  };
-
   return (
     <Wrapper>
       <div className="slide-container-img">
-        <IoIosClose className="btn-close" onClick={haldleClose} />
+        <IoIosClose className="btn-close" onClick={handleClose} />
         <img src={image} alt="name" />
       </div>
 
-      <span className="arrow arrow-left" onClick={handleLeftClick}></span>
-      <span className="arrow arrow-right" onClick={handleRightClick}></span>
+      <span className="arrow arrow-left" onClick={handleLeftClick}>
+        <IoIosArrowBack />
+      </span>
+      <span className="arrow arrow-right" onClick={handleRightClick}>
+        <IoIosArrowForward />
+      </span>
     </Wrapper>
   );
 };
@@ -55,12 +48,18 @@ const Wrapper = styled.div`
     justify-content: center;
     align-items: center;
     max-height: 80vh;
+    transition: all ease-in-out 0.5s;
   }
 
   .slide-container-img img {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     max-width: 100%;
+    max-height: 80vh;
+    border-radius: 2em;
     overflow: hidden;
-    transition: all ease-in-out 0.5s;
   }
 
   .title {
@@ -85,7 +84,7 @@ const Wrapper = styled.div`
     position: absolute;
     top: 50%;
     padding: 0.5em;
-    background: rgba(0, 0, 0, 0.4);
+    /* background: rgba(0, 0, 0, 0.4); */
     color: white;
     font-size: 2rem;
     cursor: pointer;
@@ -97,16 +96,8 @@ const Wrapper = styled.div`
     left: 0;
   }
 
-  .arrow-left::before {
-    content: "<";
-  }
-
   .arrow-right {
     right: 0;
-  }
-
-  .arrow-right::before {
-    content: ">";
   }
 
   @media (orientation: landscape) {

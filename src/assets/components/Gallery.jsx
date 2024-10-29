@@ -14,35 +14,22 @@ const Gallery = () => {
   const [images, setImages] = useState(pagination(gallery, 6));
   const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
 
-  const [currentIndex, setCurrentIndex] = useState(0);
+  const length = gallery.length;
 
-  const [showSlide, setShowSlide] = useState({});
+  const [showSlide, setShowSlide] = useState(false);
 
-  const handleClick = (i, slideShowKey, index) => {
-    setCurrentIndex(i);
-    setShowSlide({ [slideShowKey]: true });
-    console.log(showSlide);
-  };
-
-  const debouce = (func, delay) => {
-    let timeout;
-    return (...args) => {
-      clearTimeout(timeout);
-      timeout = setTimeout(() => func(...args), delay);
-    };
+  const handleClose = () => {
+    setShowSlide(false);
   };
 
   // Adjust index based on the screen size
   useEffect(() => {
-    const handleResize = () => {
-      setIsMobile(window.innerWidth < 768);
-      setIndex(0); //reset the index when switching between mobile and desktop
-    };
-    const debounceResize = debouce(handleResize, 100);
-    window.addEventListener("resize", handleResize);
-
-    return () => window.removeEventListener("resize", debounceResize);
-  }, []);
+    if (index < length) {
+      setIndex(index);
+    } else {
+      setIndex(0);
+    }
+  }, [isMobile]);
 
   //------- All this function is for Desktop ---------//
   //--------------------------------------------------//
@@ -112,13 +99,12 @@ const Gallery = () => {
               return (
                 <div
                   key={image.id}
-                  className="h-[20em] rounded-[1.5em] overflow-hidden"
+                  className="h-[15em] rounded-[1.5em] overflow-hidden"
                 >
                   <img
                     src={image.img}
                     alt={image.alt}
                     className="max-w-[100%] w-[100%] h-[100%] object-cover"
-                    onClick={(i) => handleClick(i, image.id, index)}
                   />
                 </div>
               );
@@ -140,10 +126,10 @@ const Gallery = () => {
       {/* -----------------------Gallery for mobile----------------------- */}
       {isMobile && (
         <div className="md:hidden">
-          <div className="relative h-[27em] mt-[2em] mx-[2em] rounded-[1.5em] overflow-hidden">
+          <div className="relative h-[27em] mt-[2em] mx-[2em] rounded-[1.5em] overflow-hidden ">
             {/* Arrow left for mobile */}
             <div
-              className="absolute top-[50%] translate-y-[-50%] lelf-[0] text-white text-[2rem]"
+              className="absolute top-[50%] translate-y-[-50%] lelf-[0] text-white text-[2rem] z-10"
               onClick={handleBackClick}
             >
               <IoIosArrowBack />
@@ -151,19 +137,28 @@ const Gallery = () => {
 
             {/* Arrow right for mobile  */}
             <div
-              className="absolute top-[50%] translate-y-[-50%] right-[0] text-white text-[2rem]"
+              className="absolute top-[50%] translate-y-[-50%] right-[0] text-white text-[2rem] z-10"
               onClick={handleForwardClick}
             >
               <IoIosArrowForward />
             </div>
             {/* Gallery images */}
-            <img
-              className="w-[100%] h-[100%] object-cover transition-transform duration-500 ease-in-out"
-              loading="lazy"
-              key={gallery[index].id}
-              src={gallery[index].img}
-              alt={gallery[index].alt}
-            />
+
+            {gallery.map((img, i) => {
+              return (
+                <img
+                  style={{
+                    opacity: `${i === index ? "1" : "0"}`,
+                  }}
+                  className="absolute top-0 left-0 w-[100%] h-[100%] object-cover opacity-0 transition-opacity duration-500 ease-in-out"
+                  loading="lazy"
+                  key={img.id}
+                  src={img.img}
+                  alt={img.alt}
+                  onClick={() => setShowSlide(true)}
+                />
+              );
+            })}
           </div>
           {/* Bullets for the gallery */}
           <div className="m-auto mt-[1em] w-[12em] flex justify-between">
@@ -171,7 +166,7 @@ const Gallery = () => {
               return (
                 <span
                   key={i}
-                  className={`inline-block ${i === index ? "bg-pink" : "bg-light-pink"}  rounded-[50%] w-[.7em] h-[.7em]`}
+                  className={`inline-block ${i === index ? "bg-pink" : "bg-light-pink"}  rounded-[50%] w-[.7em] h-[.7em] cursor-pointer`}
                   onClick={() => handleBulletClick(i)}
                 ></span>
               );
@@ -179,17 +174,16 @@ const Gallery = () => {
           </div>
         </div>
       )}
-
-      {/* <Wrapper>
-        <SlideShow
-          image={gallery[index]}
-          setShowSlide={setShowSlide}
-          index={currentIndex}
-          setIndex={setCurrentIndex}
-          totalImages={gallery.length}
-          slideShowKey={Object.keys(showSlide)}
-        />
-      </Wrapper> */}
+      {showSlide && (
+        <Wrapper>
+          <SlideShow
+            image={gallery[index].img}
+            setIndex={setIndex}
+            totalImages={gallery.length}
+            handleClose={handleClose}
+          />
+        </Wrapper>
+      )}
     </section>
   );
 };
@@ -197,7 +191,6 @@ export default Gallery;
 
 const Wrapper = styled.div`
   //style the div that contains the SlideShow Component
-
   position: fixed;
   top: 50%;
   left: 50%;
@@ -205,5 +198,5 @@ const Wrapper = styled.div`
   height: 100vh;
   background: rgba(0, 0, 0, 0.9);
   transform: translate(-50%, -50%);
-  z-index: 2;
+  z-index: 999;
 `;
