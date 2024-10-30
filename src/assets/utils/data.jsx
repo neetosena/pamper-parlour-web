@@ -37,13 +37,13 @@ export const about = {
 };
 
 export const gallery = [
-  { id: 1, img: Gallery7, alt: "Image-7" },
-  { id: 2, img: Gallery2, alt: "Image-2" },
-  { id: 3, img: Gallery3, alt: "Image-3" },
-  { id: 4, img: Gallery4, alt: "Image-4" },
-  { id: 5, img: Gallery5, alt: "Image-5" },
-  { id: 6, img: Gallery6, alt: "Image-6" },
-  { id: 7, img: Gallery1, alt: "Image-1" },
+  { id: 0, img: Gallery7, alt: "Image-7" },
+  { id: 1, img: Gallery2, alt: "Image-2" },
+  { id: 2, img: Gallery3, alt: "Image-3" },
+  { id: 3, img: Gallery4, alt: "Image-4" },
+  { id: 4, img: Gallery5, alt: "Image-5" },
+  { id: 5, img: Gallery6, alt: "Image-6" },
+  { id: 6, img: Gallery1, alt: "Image-1" },
 ];
 
 export const testimonials = [

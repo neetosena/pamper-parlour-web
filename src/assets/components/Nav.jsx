@@ -23,11 +23,17 @@ const Nav = () => {
       <div className="md:max-w-[1000px] md:m-auto md:px-8 md:h-auto md:flex md:justify-between">
         <div className="flex justify-between p-4">
           {/* Logo */}
-          <NavLink to="/" className="cursor-pointer hover:opacity-[0.5]">
+          <NavLink
+            to="/"
+            className=" pl-[1em] cursor-pointer hover:opacity-[0.5] md:pl-[0]"
+          >
             <img className="max-w-xs w-44" src={Logo} alt="Pamper Parlour" />
           </NavLink>
           {/* Hamburguer Icon for Mobile (Hidden on large screens) */}
-          <div className="flex items-center md:hidden" onClick={handleClick}>
+          <div
+            className="mr-[1em] flex items-center md:hidden"
+            onClick={handleClick}
+          >
             <HiMenuAlt1 className="text-3xl" />
           </div>
         </div>

@@ -10,12 +10,10 @@ import styled from "styled-components";
 
 const Gallery = () => {
   const [index, setIndex] = useState(0);
-  const [changeColor, setChangeColor] = useState(false);
+  const [indexDesktop, setIndexDesktop] = useState(0);
   const [images, setImages] = useState(pagination(gallery, 6));
+  const [changeColor, setChangeColor] = useState(false);
   const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
-
-  const length = gallery.length;
-
   const [showSlide, setShowSlide] = useState(false);
 
   const handleClose = () => {
@@ -24,7 +22,7 @@ const Gallery = () => {
 
   // Adjust index based on the screen size
   useEffect(() => {
-    if (index < length) {
+    if (index < gallery.length) {
       setIndex(index);
     } else {
       setIndex(0);
@@ -34,24 +32,29 @@ const Gallery = () => {
   //------- All this function is for Desktop ---------//
   //--------------------------------------------------//
   const handleClickPage = (index_) => {
-    setIndex(index_);
+    setIndexDesktop(index_);
   };
 
   const handleClickPageBack = () => {
-    if (index <= 0) {
-      setIndex(0);
+    if (indexDesktop <= 0) {
+      setIndexDesktop(0);
     } else {
-      setIndex(index - 1);
+      setIndexDesktop(indexDesktop - 1);
     }
   };
 
   const handleClickPageForward = () => {
-    if (index >= images.length - 1) {
+    if (indexDesktop >= images.length - 1) {
       console.log("here", images.length);
-      setIndex(images.length - 1);
+      setIndexDesktop(images.length - 1);
     } else {
-      setIndex(index + 1);
+      setIndexDesktop(indexDesktop + 1);
     }
+  };
+
+  const handleClickImage = (index_) => {
+    setIndex(index_);
+    setShowSlide(true);
   };
 
   //--------------------------------------------------//
@@ -95,11 +98,12 @@ const Gallery = () => {
       {!isMobile && (
         <div className="hidden md:block p-[2em] xl:max-w-[1000px] xl:mx-auto xl:pt-[4em]">
           <div className="grid grid-cols-3 grid-rows-2 gap-[2em]">
-            {images[index].map((image) => {
+            {images[indexDesktop].map((image) => {
               return (
                 <div
                   key={image.id}
                   className="h-[15em] rounded-[1.5em] overflow-hidden"
+                  onClick={() => handleClickImage(image.id)}
                 >
                   <img
                     src={image.img}
