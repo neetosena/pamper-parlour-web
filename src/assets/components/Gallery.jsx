@@ -96,19 +96,19 @@ const Gallery = () => {
 
       {/* ----------------Gallery for Tablet and Desktop---------------- */}
       {!isMobile && (
-        <div className="hidden md:block p-[2em] xl:max-w-[1000px] xl:mx-auto xl:pt-[4em]">
+        <div className=" md:block p-[2em] xl:max-w-[1000px] xl:mx-auto xl:pt-[4em]">
           <div className="grid grid-cols-3 grid-rows-2 gap-[2em]">
             {images[indexDesktop].map((image) => {
               return (
                 <div
                   key={image.id}
-                  className="h-[15em] rounded-[1.5em] overflow-hidden"
+                  className="h-[15em] rounded-[1.5em] transition-shadow duration-500 ease-in-out hover:shadow-2xl cursor-pointer overflow-hidden "
                   onClick={() => handleClickImage(image.id)}
                 >
                   <img
                     src={image.img}
                     alt={image.alt}
-                    className="max-w-[100%] w-[100%] h-[100%] object-cover"
+                    className="max-w-[100%] w-[100%] h-[100%] object-cover transition-transform duration-[1s] ease-in-out hover:scale-[1.3]"
                   />
                 </div>
               );
