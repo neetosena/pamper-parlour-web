@@ -169,7 +169,7 @@ const Wrapper = styled.div`
     height: 4em;
     font-size: 1rem;
     border: 1px solid #d7d7d7;
-    border-radius: 1em;
+    border-radius: 0.5em;
   }
   textarea {
     height: 10em;
@@ -194,7 +194,7 @@ const Wrapper = styled.div`
     cursor: pointer;
     outline: none;
     border: none;
-    border-radius: 1em;
+    border-radius: 0.5em;
     transition: all ease-in-out 0.3s;
   }
 

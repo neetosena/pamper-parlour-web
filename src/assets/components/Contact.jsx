@@ -70,7 +70,7 @@ const Wrapper = styled.div`
   .map iframe {
     margin-bottom: 2em;
     width: 100%;
-    border-radius: 1em;
+    border-radius: 0.5em;
   }
 
   .inner-container a {

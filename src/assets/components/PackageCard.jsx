@@ -6,7 +6,7 @@ const PackageCard = ({ packages, handleEnquireClick }) => {
     /* Card inner container */
     <div
       key={packages.id}
-      className="flex flex-col justify-center bg-white rounded-[2em] overflow-hidden"
+      className="flex flex-col justify-center bg-white rounded-[0.5em] overflow-hidden"
     >
       {/* Title */}
       <p

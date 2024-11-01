@@ -96,13 +96,13 @@ const Gallery = () => {
 
       {/* ----------------Gallery for Tablet and Desktop---------------- */}
       {!isMobile && (
-        <div className=" md:block p-[2em] xl:max-w-[1000px] xl:mx-auto xl:pt-[4em]">
-          <div className="grid grid-cols-3 grid-rows-2 gap-[2em]">
+        <div className=" md:block py-[2em] xl:max-w-[1000px] xl:mx-auto xl:pt-[4em]">
+          <div className="grid grid-cols-3 grid-rows-2 gap-[3em]">
             {images[indexDesktop].map((image) => {
               return (
                 <div
                   key={image.id}
-                  className="h-[15em] rounded-[1.5em] transition-shadow duration-500 ease-in-out hover:shadow-2xl cursor-pointer overflow-hidden "
+                  className="h-[15em] rounded-[0.5em]  transition-shadow duration-500 ease-in-out hover:shadow-2xl cursor-pointer overflow-hidden "
                   onClick={() => handleClickImage(image.id)}
                 >
                   <img
@@ -130,7 +130,7 @@ const Gallery = () => {
       {/* -----------------------Gallery for mobile----------------------- */}
       {isMobile && (
         <div className="md:hidden">
-          <div className="relative h-[27em] mt-[2em] mx-[2em] rounded-[1.5em] overflow-hidden ">
+          <div className="relative h-[27em] mt-[2em] mx-[2em] rounded-[0.5em] overflow-hidden ">
             {/* Arrow left for mobile */}
             <div
               className="absolute top-[50%] translate-y-[-50%] lelf-[0] text-white text-[2rem] z-10"

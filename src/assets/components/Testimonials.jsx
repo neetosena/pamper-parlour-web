@@ -12,6 +12,8 @@ const Testimonials = () => {
   const [index, setIndex] = useState(0);
   const [changeColor, setChangeColor] = useState(false);
   const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
+  const [touchStart, setTouchStart] = useState(0);
+  const [currentTouch, setCurrentTouch] = useState(0);
 
   const length = testimonials.length;
 
@@ -22,10 +24,6 @@ const Testimonials = () => {
     } else {
       setIndex(0);
     }
-
-    // window.addEventListener("resize", handleResize);
-
-    // return () => window.removeEventListener("resize", handleResize);
   }, [isMobile]);
 
   //------- All this function is for Dektop ---------//
@@ -41,28 +39,37 @@ const Testimonials = () => {
   //------- All this function is for Mobile ---------//
   //--------------------------------------------------//
 
-  const handleForwardClick = () => {
-    if (index >= testimonials.length - 1) {
-      setIndex(0);
-    } else {
-      setIndex(index + 1);
-    }
-  };
-
-  const handleBackClick = () => {
-    if (index <= 0) {
-      setIndex(testimonials.length - 1);
-    } else {
-      setIndex(index - 1);
-    }
-  };
-
   const handleBulletClick = (id) => {
     setIndex(id);
     if (id === index) {
       setChangeColor(!changeColor);
     }
   };
+
+  const handleTouchStart = (e) => {
+    // e.preventDefault();
+    setTouchStart(e.touches[0].clientX);
+  };
+
+  const handleTouchMove = (e) => {
+    // e.preventDefault();
+
+    setCurrentTouch(e.touches[0].clientX);
+  };
+
+  const handleTouchEnd = (e) => {
+    // e.preventDefault();
+    if (currentTouch > touchStart && index < length - 1) {
+      setIndex(index + 1);
+      console.log(index);
+    } else if (currentTouch < touchStart && index > 0) {
+      setIndex(index - 1);
+    }
+  };
+
+  //   useEffect(() => {
+  //     console.log(toucheStart);
+  //   }, [toucheStart]);
 
   //--------------------------------------------------//
 
@@ -90,7 +97,10 @@ const Testimonials = () => {
                 // Testimonials Card
                 <div
                   key={t.id}
-                  className={`relative basis-[100%] flex flex-col justify-center min-h-[25em] p-[2em] pt-[3em] text-center bg-white border-solid border-[1px]  border-white rounded-[1.5em]`}
+                  className={`relative basis-[100%] flex flex-col justify-center min-h-[25em] p-[2em] pt-[3em] text-center bg-white border-solid border-[1px]  border-white rounded-[0.5em]`}
+                  onTouchStart={handleTouchStart}
+                  onTouchMove={handleTouchMove}
+                  onTouchEnd={handleTouchEnd}
                 >
                   {/* Quote */}
                   <span className="absolute top-[-13%] left-[50%] translate-x-[-50%] p-[.2em] text-[3.5em] bg-white rounded-[50%] border-[0.1em] border-lighter-pink text-gold">
@@ -153,7 +163,7 @@ const Testimonials = () => {
                 // Testimonials Card
                 <div
                   key={t.id}
-                  className={`relative basis-[100%] flex flex-col justify-center min-h-[25em] p-[2em] pt-[3em] text-center bg-white border-solid border-[1px]  border-white rounded-[1.5em] transition-opacity ease-in-out duration-500`}
+                  className={`relative basis-[100%] flex flex-col justify-center min-h-[25em] p-[2em] pt-[3em] text-center bg-white border-solid border-[1px]  border-white rounded-[0.5em] transition-opacity ease-in-out duration-500`}
                 >
                   {/* Quote */}
                   <span className="absolute top-[-13%] left-[50%] translate-x-[-50%] p-[.2em] text-[3.5em] bg-white rounded-[50%] border-[0.1em] border-lighter-pink text-gold">

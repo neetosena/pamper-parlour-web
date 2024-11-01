@@ -12,7 +12,7 @@ const Paginate = ({
       <button
         type="button"
         onClick={handleClickPageBack}
-        className="py-[0.7em] px-[1em] border-solid border-[1px] border-light-pink rounded-[0.2em] bg-light-pink text-white "
+        className="py-[0.7em] px-[1em] border-solid border-[1px] border-light-pink rounded-[0.2em] bg-light-pink text-white hover:bg-pink hover:border-pink "
       >
         <IoIosArrowBack />
       </button>
@@ -22,7 +22,7 @@ const Paginate = ({
             key={index}
             type="button"
             onClick={() => handleClickPage(index)}
-            className="font-bold py-[0.48em] px-[1.5em] border-solid border-[1px] border-white rounded-[0.2em] bg-white text-pink"
+            className="font-bold py-[0.48em] px-[1.5em] border-solid border-[1px] border-white rounded-[0.2em] bg-white text-pink transition-all duration-500 ease-in-out hover:bg-pink hover:border-pink hover:text-white"
           >
             {index + 1}
           </button>
@@ -32,7 +32,7 @@ const Paginate = ({
       <button
         type="button"
         onClick={handleClickPageForward}
-        className="py-[0.7em] px-[1em] border-solid border-[1px] border-light-pink rounded-[0.2em] bg-light-pink text-white"
+        className="py-[0.7em] px-[1em] border-solid border-[1px] border-light-pink rounded-[0.2em] bg-light-pink text-white hover:bg-pink hover:border-pink "
       >
         <IoIosArrowForward />
       </button>

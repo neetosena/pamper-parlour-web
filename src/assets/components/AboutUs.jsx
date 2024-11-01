@@ -25,7 +25,7 @@ const AboutUs = () => {
       {/* Inner Container for image + paragraph */}
       <div className="md:flex md:max-w-[1000px] md:gap-[3em] md:mt-[3em] md:mx-auto">
         {/* Candy Cart Image */}
-        <div className="w-[100%] my-[2em] rounded-[1.5em] overflow-hidden md:basis-[50%] md:h-[25em] md:m-0 md:bg-pink">
+        <div className="w-[100%] my-[2em] rounded-[0.5em] overflow-hidden md:basis-[50%] md:h-[25em] md:m-0 md:bg-pink">
           <img
             src={about.img}
             alt="Candy Cart"
