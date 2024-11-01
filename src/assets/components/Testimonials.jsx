@@ -60,10 +60,10 @@ const Testimonials = () => {
   const handleTouchEnd = () => {
     // e.preventDefault();
     if (currentTouch > touchStart + 30 && index < length - 1) {
-      setIndex(index + 1);
+      setIndex(index - 1);
       console.log(index);
     } else if (currentTouch < touchStart - 30 && index > 0) {
-      setIndex(index - 1);
+      setIndex(index + 1);
     }
   };
 
