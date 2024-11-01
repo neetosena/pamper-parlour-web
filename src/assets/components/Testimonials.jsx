@@ -57,12 +57,12 @@ const Testimonials = () => {
     setCurrentTouch(e.touches[0].clientX);
   };
 
-  const handleTouchEnd = (e) => {
+  const handleTouchEnd = () => {
     // e.preventDefault();
-    if (currentTouch > touchStart && index < length - 1) {
+    if (currentTouch > touchStart + 30 && index < length - 1) {
       setIndex(index + 1);
       console.log(index);
-    } else if (currentTouch < touchStart && index > 0) {
+    } else if (currentTouch < touchStart - 30 && index > 0) {
       setIndex(index - 1);
     }
   };
