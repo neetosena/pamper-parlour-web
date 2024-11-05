@@ -102,21 +102,6 @@ export const packagesInfo = [
 export const packages = [
   {
     id: 1,
-    primaryColor: "#C30082",
-    secondaryColor: "#FFF0F4",
-    title: "Standard",
-    price: "€250",
-    info: ["For 10 children", "€10 per extra child"],
-    items: [
-      "Kids Champagne",
-      "Chocolate Fondue with Marshmallows",
-      "Juice and Nibbles",
-      "Satin Robe and Headband, to be given back at the end of treatments",
-    ],
-  },
-
-  {
-    id: 2,
     primaryColor: "#423FD7",
     secondaryColor: "#EBEBFF",
     title: "Special Offer",
@@ -131,6 +116,21 @@ export const packages = [
       "Pizza and Chips",
     ],
   },
+  {
+    id: 2,
+    primaryColor: "#C30082",
+    secondaryColor: "#FFF0F4",
+    title: "Standard",
+    price: "€250",
+    info: ["For 10 children", "€10 per extra child"],
+    items: [
+      "Kids Champagne",
+      "Chocolate Fondue with Marshmallows",
+      "Juice and Nibbles",
+      "Satin Robe and Headband, to be given back at the end of treatments",
+    ],
+  },
+
   {
     id: 3,
     primaryColor: "#716F71",

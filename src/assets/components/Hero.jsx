@@ -3,8 +3,14 @@ import { hero } from "../utils/data";
 
 import BackgroundMobile from "../images/background-hero-mobile-2.jpg";
 import BackgroundDesktop from "../images/background-hero-desktop.jpg";
+import { useState, useEffect } from "react";
 
 const Hero = () => {
+  const [isLoaded, setIsLoaded] = useState(false);
+
+  useEffect(() => {
+    setIsLoaded(true);
+  }, []);
   return (
     <section className="min-h-full md:min-h-auto">
       {/* Background Pink image for mobile and tablet */}
@@ -24,7 +30,7 @@ const Hero = () => {
         return (
           <div
             key={h.id}
-            className="mt-[6em] flex flex-col pt-16 justify-center min-h-[calc(100vh-4.25rem)] text-center md:min-h-[calc(70vh-4.25rem)] md:h-[90vh] md:flex-row md:items-center lg:max-w-[1600px] lg:m-auto"
+            className={`transition-opacity duration-1000 ease-in-out mt-[6em] flex flex-col pt-16 justify-center min-h-[calc(100vh-4.25rem)] text-center ${isLoaded ? "opacity-100" : "opacity-0"} md:min-h-[calc(70vh-4.25rem)] md:h-[90vh] md:flex-row md:items-center lg:max-w-[1600px] lg:m-auto`}
           >
             <div className="px-12 lg:px-12 xl:pl-[17rem]">
               <span className="block mb-6 font-manuscript text-3xl/[1.5] text-pink ">

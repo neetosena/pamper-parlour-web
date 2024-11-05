@@ -37,7 +37,7 @@ const Packages = () => {
       </div>
       {/* Join Party information */}
       <div className="mt-[2em] md:max-w-[1000px] md:mx-[auto]">
-        <h4 className="mb-[0.5em]">Join Party</h4>
+        <h4 className="mb-[0.5em]">Joint Party</h4>
         <p>
           with 2 Birthday Girls additional,
           <strong> €20 across all packages</strong>

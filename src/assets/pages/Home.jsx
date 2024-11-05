@@ -11,6 +11,7 @@ import { useLocation } from "react-router-dom";
 import { scrollToSection } from "../utils/data";
 import { useEffect } from "react";
 import Invitation from "../components/Invitation";
+import FadeInSection from "../components/FadeInSection";
 
 const Home = () => {
   const location = useLocation();
@@ -23,12 +24,24 @@ const Home = () => {
     <section className="relative overflow-hidden">
       <Nav />
       <Hero />
-      <AboutUs />
-      <Gallery />
-      <Testimonials />
-      <Invitation />
-      <Packages />
-      <Contact />
+      <FadeInSection>
+        <AboutUs />
+      </FadeInSection>
+      <FadeInSection>
+        <Gallery />
+      </FadeInSection>
+      <FadeInSection>
+        <Testimonials />
+      </FadeInSection>
+      <FadeInSection>
+        <Invitation />
+      </FadeInSection>
+      <FadeInSection>
+        <Packages />
+      </FadeInSection>
+      <FadeInSection>
+        <Contact />
+      </FadeInSection>
       <Footer />
     </section>
   );

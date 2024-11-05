@@ -107,4 +107,12 @@ const Wrapper = styled.section`
   nav {
     transition: transform 0.5s ease-in-out;
   }
+
+  li .nav-link {
+    color: black;
+  }
+
+  li .nav-link.active {
+    color: red;
+  }
 `;
