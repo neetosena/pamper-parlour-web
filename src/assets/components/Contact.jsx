@@ -52,7 +52,7 @@ const Contact = () => {
 export default Contact;
 
 const Wrapper = styled.div`
-  scroll-margin-top: 105.5px;
+  scroll-margin-top: calc(105.5px * 2);
 
   .contact-container {
     padding-bottom: 4em;

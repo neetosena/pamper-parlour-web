@@ -9,39 +9,49 @@ import Footer from "../components/Footer";
 
 import { useLocation } from "react-router-dom";
 import { scrollToSection } from "../utils/data";
-import { useEffect } from "react";
+import { useState, useEffect } from "react";
 import Invitation from "../components/Invitation";
 import FadeInSection from "../components/FadeInSection";
 
 const Home = () => {
+  const [activeSection, setActiveSection] = useState("");
   const location = useLocation();
 
   useEffect(() => {
     scrollToSection(location);
   }, [location, scrollToSection]);
 
+  const handleVisibilityChange = (id) => {
+    setActiveSection(id);
+  };
+
   return (
     <section className="relative overflow-hidden">
-      <Nav />
+      <Nav activeSection={activeSection} />
       <Hero />
-      <FadeInSection>
+
+      <FadeInSection id="about-us" onVisible={handleVisibilityChange}>
         <AboutUs />
       </FadeInSection>
-      <FadeInSection>
+
+      <FadeInSection id="gallery" onVisible={handleVisibilityChange}>
         <Gallery />
       </FadeInSection>
-      <FadeInSection>
+
+      <FadeInSection id="testimonials" onVisible={handleVisibilityChange}>
         <Testimonials />
       </FadeInSection>
-      <FadeInSection>
-        <Invitation />
-      </FadeInSection>
-      <FadeInSection>
+
+      <Invitation />
+
+      <FadeInSection id="packages" onVisible={handleVisibilityChange}>
         <Packages />
       </FadeInSection>
-      <FadeInSection>
+
+      <FadeInSection id="contact" onVisible={handleVisibilityChange}>
         <Contact />
       </FadeInSection>
+
       <Footer />
     </section>
   );

@@ -79,7 +79,7 @@ const Footer = () => {
       <div className="container-designer-by">
         <p>
           © {new Date().getFullYear()} Pamper Parlour | Design by:{" "}
-          <a href="https://netosena.ie" rel="noreferrer">
+          <a href="https://netosena.ie" target="_blank" rel="noreferrer">
             Neto Sena
           </a>
         </p>

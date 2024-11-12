@@ -37,9 +37,6 @@ export default Invitation;
 const Wrapper = styled.section`
   padding: 4em 2em;
   background-color: var(--lighter-pink);
-  /* background-image: url(${BackgroundInvitation});
-  background-size: cover;
-  background-position: center bottom; */
   min-height: 80vh;
 
   h4 {
@@ -80,6 +77,8 @@ const Wrapper = styled.section`
 
   @media (min-width: 768px) {
     min-height: 50vh;
+    display: flex;
+
     .invitation-container {
       margin: auto;
       max-width: 1000px;

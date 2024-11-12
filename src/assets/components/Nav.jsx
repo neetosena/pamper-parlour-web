@@ -1,5 +1,5 @@
-import { useState } from "react";
-import { NavLink } from "react-router-dom";
+import { forwardRef, useEffect, useRef, useState } from "react";
+import { NavLink, useLocation } from "react-router-dom";
 import { navLinks } from "../utils/data";
 
 import Logo from "../images/logo_pamper_parlour.svg";
@@ -39,7 +39,7 @@ const Nav = () => {
         </div>
         {/* Mobile and Desktop Nav combined */}
         <nav
-          className={`fixed top-0 left-0 w-screen h-screen flex flex-col justify-around items-center z-[999] bg-light-pink transform transition-transform ease-in-out delay-100 ${showMenu ? "translate-x-0" : "translate-x-full"} md:flex-row md:basis-full md:relative md:translate-x-0 md:bg-transparent md:h-auto md:w-auto `}
+          className={`fixed top-0 left-0 w-screen h-screen flex flex-col justify-around items-center z-[999] bg-light-pink  ${showMenu ? "translate-x-0" : "translate-x-full"} md:flex-row md:basis-full md:relative md:translate-x-0 md:bg-transparent md:h-auto md:w-auto `}
         >
           {/* Close Icon for Mobile (Hidden for larger screens) */}
           <div
@@ -50,7 +50,7 @@ const Nav = () => {
           </div>
           {/* Logo P for mobile (Hidden for larger screens) */}
           <img
-            className="w-16 mt-8 md:hidden"
+            className="w-16 mt-[5em] md:hidden"
             src={LogoMenu}
             alt="Pamper Parlour"
           />
@@ -64,7 +64,7 @@ const Nav = () => {
                 >
                   <NavLink
                     to={`#${link.scrollTo}`}
-                    className="cursor-pointer hover:text-pink"
+                    className={`cursor-pointer hover:text-pink`}
                     onClick={handleClick}
                   >
                     {link.name}
@@ -74,7 +74,7 @@ const Nav = () => {
             })}
           </ul>
           {/* Phone, Email and Location for mobile (Hidden for larger screens) */}
-          <div className="flex w-3/5 mb-8 justify-between h-auto md:hidden">
+          <div className="flex w-3/5 mb-[5em] justify-between h-auto md:hidden">
             <a href="tel:+3532371305" className="hover:opacity-[0.8]">
               <FaPhone className="text-5xl p-3 bg-white text-pink" />
             </a>
@@ -105,14 +105,6 @@ const Wrapper = styled.section`
   box-shadow: 10px 10px 39px -1px rgba(0, 0, 0, 0.09);
 
   nav {
-    transition: transform 0.5s ease-in-out;
-  }
-
-  li .nav-link {
-    color: black;
-  }
-
-  li .nav-link.active {
-    color: red;
+    transition: transform 0.3s ease-in-out;
   }
 `;

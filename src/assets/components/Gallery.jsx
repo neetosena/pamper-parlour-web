@@ -13,7 +13,7 @@ const Gallery = () => {
   const [indexDesktop, setIndexDesktop] = useState(0);
   const [images, setImages] = useState(pagination(gallery, 6));
   const [changeColor, setChangeColor] = useState(false);
-  const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
+  const [isMobile, setIsMobile] = useState(null);
   const [showSlide, setShowSlide] = useState(false);
 
   const handleClose = () => {
@@ -22,11 +22,7 @@ const Gallery = () => {
 
   // Adjust index based on the screen size
   useEffect(() => {
-    if (index < gallery.length) {
-      setIndex(index);
-    } else {
-      setIndex(0);
-    }
+    setIsMobile(window.innerWidth < 768);
   }, [isMobile]);
 
   //------- All this function is for Desktop ---------//
