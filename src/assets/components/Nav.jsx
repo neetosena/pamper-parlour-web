@@ -19,7 +19,7 @@ const Nav = () => {
   };
 
   return (
-    <Wrapper className="fixed top-0 left-0 w-[100vw] bg-white md:m-auto z-[999] ">
+    <Wrapper className="fixed top-0 left-0 w-[100vw] bg-white md:m-auto z-[998] ">
       <div className="md:max-w-[1000px] md:m-auto md:px-8 md:h-auto md:flex md:justify-between">
         <div className="flex justify-between p-4">
           {/* Logo */}

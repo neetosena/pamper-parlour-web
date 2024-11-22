@@ -2,15 +2,10 @@ import styled from "styled-components";
 import { Formik, Field, Form, ErrorMessage } from "formik";
 import * as Yup from "yup";
 import { useEffect, useState } from "react";
-import ThankYou from "./ThankYou";
+import ThankYou from "./thankyou/ThankYou";
 
 const ContactForm = () => {
   const [submitted, setSubmitted] = useState(false);
-  //   const [title, setTitle] = useState(packageTitle || "");
-
-  //   useEffect(() => {
-  //     setTitle(packageTitle);
-  //   }, [title]);
 
   const initialValues = {
     name: "",
@@ -19,13 +14,6 @@ const ContactForm = () => {
   };
 
   const encode = (data) => {
-    console.log(
-      Object.keys(data)
-        .map(
-          (key) => encodeURIComponent(key) + "=" + encodeURIComponent(data[key])
-        )
-        .join("&")
-    );
     return Object.keys(data)
       .map(
         (key) => encodeURIComponent(key) + "=" + encodeURIComponent(data[key])
@@ -48,9 +36,6 @@ const ContactForm = () => {
         window.scrollTo({ top: 0, behavior: "smooth" });
 
         setTimeout(() => setSubmitted(false), 5000);
-
-        // navigate("/thank-you");
-        // alert("Thank you for your message!");
       })
       .catch((error) => {
         console.error("Form submission error: ", error);

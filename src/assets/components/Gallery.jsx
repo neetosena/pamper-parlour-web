@@ -161,7 +161,7 @@ const Gallery = () => {
             })}
           </div>
           {/* Bullets for the gallery */}
-          <div className="m-auto mt-[1em] w-[12em] flex justify-between">
+          <div className="m-auto mt-[1em] w-[17em] flex justify-between">
             {gallery.map((_, i) => {
               return (
                 <span

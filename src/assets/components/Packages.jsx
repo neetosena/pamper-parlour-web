@@ -3,7 +3,24 @@ import { packagesInfo, packages } from "../utils/data";
 
 import PackageCard from "./PackageCard";
 
+import { useState } from "react";
+import PackageCardForm from "./PackageCardForm";
+
 const Packages = () => {
+  const [isVisible, setIsVisible] = useState(false);
+  const [index, setIndex] = useState(0);
+
+  const handleOpenEnquireForm = (e) => {
+    setIndex(parseInt(e.target.dataset.id) - 1);
+    setIsVisible(true);
+    console.log("ID: ", parseInt(e.target.dataset.id));
+  };
+
+  const handleCloseEnquireForm = () => {
+    setIsVisible(false);
+  };
+  console.log(index);
+
   //------- All this function is for Mobile ---------//
   //--------------------------------------------------//
 
@@ -46,9 +63,26 @@ const Packages = () => {
       {/* Card Container / Package card with touch functionality */}
       <div className="flex flex-col gap-[2em] mt-[3em] md:max-w-[1000px] md:mx-[auto] md:grid md:grid-cols-2 md:items-baseline lg:grid-cols-4 ">
         {packages.map((pack) => {
-          return <PackageCard key={pack.id} packages={pack} />;
+          return (
+            <PackageCard
+              key={pack.id}
+              packages={pack}
+              index={pack.id}
+              handleOpenEnquireForm={handleOpenEnquireForm}
+            />
+          );
         })}
       </div>
+      {isVisible && (
+        <PackageCardForm
+          packageName={packages[index].title}
+          price={packages[index].price}
+          bgColor={packages[index].secondaryColor}
+          bgColorTitle={packages[index].primaryColor}
+          isVisible={isVisible}
+          handleCloseEnquireForm={handleCloseEnquireForm}
+        />
+      )}
     </div>
   );
 };

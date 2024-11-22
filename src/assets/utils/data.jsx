@@ -7,6 +7,11 @@ import Gallery4 from "../images/PHOTO-2024-09-17-10-44-30-4.jpg";
 import Gallery5 from "../images/PHOTO-2024-09-17-10-44-30-5.jpg";
 import Gallery6 from "../images/PHOTO-2024-09-17-10-44-30-6.jpg";
 import Gallery7 from "../images/PHOTO-2024-09-17-10-44-30.jpg";
+import Gallery8 from "../images/Image-1.jpg";
+import Gallery9 from "../images/Image-2.jpg";
+import Gallery10 from "../images/Image-3.jpg";
+import Gallery11 from "../images/Image-4.jpg";
+import Gallery12 from "../images/Image-5.jpg";
 
 export const navLinks = [
   { id: 1, name: "Home", scrollTo: "home" },
@@ -44,34 +49,39 @@ export const gallery = [
   { id: 4, img: Gallery5, alt: "Image-5" },
   { id: 5, img: Gallery6, alt: "Image-6" },
   { id: 6, img: Gallery1, alt: "Image-1" },
+  { id: 7, img: Gallery8, alt: "Image-2" },
+  { id: 8, img: Gallery9, alt: "Image-3" },
+  { id: 9, img: Gallery10, alt: "Image-4" },
+  { id: 10, img: Gallery11, alt: "Image-5" },
+  { id: 11, img: Gallery12, alt: "Image-6" },
 ];
 
 export const testimonials = [
   {
     id: 1,
     name: "MagQiu",
-    rating: 4,
+    rating: 5,
     message:
       "Many thanks to Rachel for looking after ar organizing memorable experience for my years old daughter and her friends! Very accommodating and all around great dealing. It's so different from all the play centres out there and they are left with the best memories. Highly recommend this place.",
   },
   {
     id: 2,
     name: "Katrina B",
-    rating: 4,
+    rating: 5,
     message:
       "Had my daughters 10th birthday here today and the kids were treated like queens! Start to finish was just brilliant and all the kids were made feel special. So many little touches made it such a memorable day and zero stress. Thank you ladies!",
   },
   {
     id: 3,
     name: "Jessica Smith",
-    rating: 4,
+    rating: 5,
     message:
       "Couldn't recommend the pamper parlour enough for fitting my daughters party in last minute on the day after been let.. thank yous so much kallie had the best birthday and all of the girls had a great day × great value for money and well worth every penny spent here x",
   },
   {
     id: 4,
     name: "Laura Grehan",
-    rating: 4,
+    rating: 5,
     message:
       "My daughter had her 8th birthday party here and as we were leaving asked if she could have her next birthday party here next year. It was fantastic. The room is so lovely and girly and the girls all just loved being pampered. I received so many txt from parents saying their daughter wants to have their party here too. My daughter's favourite part was the foot spa, some girls preferred their nails and hair done and others loved the champagne.",
   },

@@ -1,7 +1,14 @@
 import { FaCheck } from "react-icons/fa";
 import { Link } from "react-router-dom";
+import PackageCardForm from "./PackageCardForm";
 
-const PackageCard = ({ packages, handleEnquireClick }) => {
+const PackageCard = ({
+  packages,
+  handleOpenEnquireForm,
+  handleCloseEnquireForm,
+  name,
+  index,
+}) => {
   return (
     /* Card inner container */
     <div
@@ -56,20 +63,14 @@ const PackageCard = ({ packages, handleEnquireClick }) => {
         })}
       </div>
       {/* Enquire Button */}
-      <Link
-        to="#contact"
+      <button
+        data-id={packages.id}
         className="scroll-mt-[105.5px] btn-enquire w-[max-content] my-[2em] self-center "
         type="button"
-        onClick={(e) => {
-          e.preventDefault();
-          document
-            .querySelector("#contact")
-            .scrollIntoView({ behavior: "smooth" });
-        }}
-        data-package-title={`${packages.title} .......€${packages.price}`}
+        onClick={(e) => handleOpenEnquireForm(e)}
       >
         ENQUIRE NOW
-      </Link>
+      </button>
     </div>
   );
 };

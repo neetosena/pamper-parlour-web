@@ -21,7 +21,7 @@ export default {
         "light-pink": "#FACAD9",
         "lighter-pink": "#FFF0F4",
         "middle-pink": "#F69FBA",
-        blue: "##423FD7",
+        blue: "#423FD7",
         "light-blue": "#EBEBFF",
         silver: "#716F71",
         "light-silver": "#F0F0F0",
