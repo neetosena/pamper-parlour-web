@@ -100,7 +100,7 @@ const PackageCardForm = ({
         }}
         placeholderText="Select a Date"
         minDate={new Date()}
-        closeOnScroll={(e) => e.target === document}
+        // closeOnScroll={(e) => e.target === document}
       />
     );
   };
@@ -110,9 +110,6 @@ const PackageCardForm = ({
     minTime.setHours(11, 0, 0, 0);
     const maxTime = new Date();
     maxTime.setHours(19, 30, 0, 0);
-
-    console.log("field: ", field, "form: ", form, "props: ", props);
-    console.log(props);
     return (
       <DatePicker
         {...field}
