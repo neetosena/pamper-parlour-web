@@ -176,6 +176,25 @@ export const packages = [
   },
 ];
 
+export const timeOptions = [
+  { value: "", label: "Time" },
+  { value: "11:00 AM", label: "11:00 AM" },
+  { value: "11:30 AM", label: "11:30 AM" },
+  { value: "12:00 PM", label: "12:00 PM" },
+  { value: "12:30 PM", label: "12:30 PM" },
+  { value: "13:00 PM", label: "13:00 PM" },
+  { value: "13:30 PM", label: "13:30 PM" },
+  { value: "14:00 PM", label: "14:00 PM" },
+  { value: "14:30 PM", label: "14:30 PM" },
+  { value: "15:00 PM", label: "15:00 PM" },
+  { value: "15:30 PM", label: "15:30 PM" },
+  { value: "16:00 PM", label: "16:00 PM" },
+  { value: "16:30 PM", label: "16:30 PM" },
+  { value: "17:00 PM", label: "17:00 PM" },
+  { value: "17:30 PM", label: "17:30 PM" },
+  { value: "18:00 PM", label: "18:00 PM" },
+];
+
 // Function to scroll to the section
 
 export const scrollToSection = (location) => {

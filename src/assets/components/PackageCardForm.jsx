@@ -7,6 +7,7 @@ import "react-datepicker/dist/react-datepicker.css";
 import { useEffect, useState } from "react";
 import * as Yup from "yup";
 import ThankYouPackage from "./thankyou/ThankYouPackage";
+import { timeOptions } from "../utils/data";
 
 const PackageCardForm = ({
   packageName,
@@ -44,15 +45,18 @@ const PackageCardForm = ({
     const formattedDate = values.date
       ? format(new Date(values.date), "dd/MM/yyyy")
       : null;
-    const formatedTime = values.time
-      ? format(new Date(values.time), "hh:mmaaa").toLocaleLowerCase()
-      : null;
+    // const formatedTime = values.time
+    //   ? format(new Date(values.time), "hh:mmaaa").toLocaleLowerCase()
+    //   : null;
+
+    // Prepare the subject line dynamically
+    const subject = `${packageName} Package ${values.name || "Unknow Name"}`;
 
     // Prepare the date for submission
     const formData = {
       ...values,
       date: formattedDate,
-      time: formatedTime,
+      subject,
     };
     // Use Netlify's form submissions endpoint
     fetch("/", {
@@ -80,7 +84,7 @@ const PackageCardForm = ({
 
   const validationSchema = Yup.object({
     date: Yup.date().required("Please select a date"),
-    time: Yup.date().required("Please select a time"),
+    time: Yup.string().required("Please select a time"),
     name: Yup.string().required("Required"),
     phone: Yup.string().required("Required"),
     email: Yup.string().email("Invalid email format!").required("Required"),
@@ -89,52 +93,81 @@ const PackageCardForm = ({
 
   // Define Date Picker Field component
   const DatePickerField = ({ field, form, ...props }) => {
+    const [isOpen, setIsOpen] = useState(false);
+
+    const handleClick = (e) => {
+      e.preventDefault();
+      setIsOpen(!isOpen);
+    };
+
     return (
-      <DatePicker
-        {...field}
-        {...props}
-        calendarClassName="date-picker"
-        selected={(field.value && new Date(field.value)) || null}
-        onChange={(val) => {
-          form.setFieldValue(field.name, val);
-        }}
-        placeholderText="Select a Date"
-        minDate={new Date()}
-        // closeOnScroll={(e) => e.target === document}
-      />
+      <>
+        <button className="btn-date-input" onClick={handleClick}>
+          {typeof field.value === "string"
+            ? "Select a date"
+            : format(
+                (field.value && new Date(field.value)) || null,
+                "dd/MM/yyyy"
+              )}
+        </button>
+        {isOpen && (
+          <>
+            <div className="date-picker-container">
+              <button
+                type="button"
+                className="btn-date-close"
+                onClick={handleClick}
+              >
+                <IoClose />
+              </button>
+              <DatePicker
+                {...field}
+                {...props}
+                calendarClassName="date-picker"
+                selected={(field.value && new Date(field.value)) || null}
+                onChange={(val) => {
+                  form.setFieldValue(field.name, val);
+                  setIsOpen(!isOpen);
+                }}
+                minDate={new Date()}
+                inline
+              />
+            </div>
+          </>
+        )}
+      </>
     );
   };
   // Define Time Picker Field component
-  const TimePickerField = ({ field, form, ...props }) => {
-    const minTime = new Date();
-    minTime.setHours(11, 0, 0, 0);
-    const maxTime = new Date();
-    maxTime.setHours(19, 30, 0, 0);
-    return (
-      <DatePicker
-        {...field}
-        {...props}
-        selected={field.value}
-        onChange={(val) => form.setFieldValue(field.name, val)}
-        calendarClassName="time-picker"
-        showTimeSelect
-        showTimeSelectOnly
-        timeCaption="Time"
-        dateFormat="h:mm aa"
-        timeIntervals={30}
-        placeholderText="Select a time"
-        minTime={minTime}
-        maxTime={maxTime}
-      />
-    );
-  };
-  console.log("Packages: ", packageName);
+  // const TimePickerField = ({ field, form, ...props }) => {
+  //   const minTime = new Date();
+  //   minTime.setHours(11, 0, 0, 0);
+  //   const maxTime = new Date();
+  //   maxTime.setHours(19, 30, 0, 0);
+  //   return (
+  //     <DatePicker
+  //       {...field}
+  //       {...props}
+  //       selected={field.value}
+  //       onChange={(val) => form.setFieldValue(field.name, val)}
+  //       calendarClassName="time-picker"
+  //       showTimeSelect
+  //       showTimeSelectOnly
+  //       timeCaption="Time"
+  //       dateFormat="h:mm aa"
+  //       timeIntervals={30}
+  //       placeholderText="Select a time"
+  //       minTime={minTime}
+  //       maxTime={maxTime}
+  //     />
+  //   );
+  // };
 
   if (!isVisible) {
     return;
   } else {
     return (
-      <Wrapper bgColor={bgColor} bgColorTitle={bgColorTitle}>
+      <Wrapper bgcolor={`${bgColor}`} bgcolortitle={`${bgColorTitle}`}>
         <div className="inner-container">
           {/* Close Icon */}
           <div className="icon-close" onClick={handleCloseEnquireForm}>
@@ -168,11 +201,7 @@ const PackageCardForm = ({
                 />
                 <input type="hidden" name="bot-field" />
 
-                <input
-                  type="hidden"
-                  name="subject"
-                  value={`%{${packageName}} Package %{name}`}
-                />
+                <input type="hidden" name="subject" value="" />
 
                 <div className="container-date-time">
                   <div>
@@ -185,7 +214,15 @@ const PackageCardForm = ({
                   </div>
 
                   <div>
-                    <Field name="time" component={TimePickerField} />
+                    <Field name="time" as="select" id="time">
+                      {timeOptions.map((time, i) => {
+                        return (
+                          <option key={i} value={time.value}>
+                            {time.label}
+                          </option>
+                        );
+                      })}
+                    </Field>
                     <ErrorMessage
                       name="time"
                       component="div"
@@ -283,13 +320,13 @@ const Wrapper = styled.section`
     flex-direction: column;
     overflow: hidden;
     height: 100vh;
-    background-color: ${(props) => props.bgColor || "#ebebff"};
+    background-color: ${(props) => props.bgcolor || "#ebebff"};
   }
 
   .icon-close {
     position: absolute;
-    top: 2em;
-    right: 2em;
+    top: 1em;
+    right: 1em;
     color: white;
     cursor: pointer;
     opacity: 1;
@@ -304,12 +341,12 @@ const Wrapper = styled.section`
 
   .title-name {
     padding: 0 2em;
-    padding-top: 4em;
+    padding-top: 2em;
     font-size: 1.125rem;
     font-weight: 600;
     color: white;
     text-align: center;
-    background-color: ${(props) => props.bgColorTitle || "#423fd7"};
+    background-color: ${(props) => props.bgcolortitle || "#423fd7"};
   }
   /* ------------------Thank You Package---------------- */
   .thank-you-package-container {
@@ -322,7 +359,7 @@ const Wrapper = styled.section`
     justify-content: center;
     align-items: center;
     z-index: 1;
-    background-color: ${(props) => props.bgColorTitle || "#423fd7"};
+    background-color: ${(props) => props.bgcolortitle || "#423fd7"};
     transition: all 0.3s ease-in-out;
   }
 
@@ -345,13 +382,15 @@ const Wrapper = styled.section`
   }
 
   input,
-  textarea {
+  textarea,
+  .btn-date-input,
+  select {
     margin-bottom: 1.5em;
     padding-left: 1.3em;
     display: block;
     width: 100%;
     outline: none;
-    height: 4em;
+    height: 3em;
     font-size: 1rem;
     border: 1px solid #d7d7d7;
     border-radius: 0.5em;
@@ -362,6 +401,11 @@ const Wrapper = styled.section`
     font-family: var(--bodyFont);
     padding-top: 1em;
     padding-right: 1.3em;
+  }
+
+  .btn-date-input {
+    text-align: left;
+    background-color: white;
   }
 
   .btn {
@@ -404,6 +448,8 @@ const Wrapper = styled.section`
     color: #d9d9d9;
   }
 
+  /* ------------------Date Picker Component---------------- */
+
   .react-datepicker-ignore-onclickoutside::placeholder {
     color: #d9d9d9 !important;
   }
@@ -420,6 +466,49 @@ const Wrapper = styled.section`
   .react-datepicker__navigation-icon {
     height: 1px;
   }
+  .container-date-time {
+    display: flex;
+    gap: 1em;
+  }
+
+  .container-date-time div {
+    flex-basis: 100%;
+  }
+
+  .btn-date-close {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 240px;
+    height: 300px;
+    transform: translate(-50%, -50%);
+    display: flex;
+    justify-content: flex-end;
+    z-index: 60;
+  }
+
+  .btn-date-close svg {
+    font-size: 1.3rem;
+  }
+
+  .date-picker-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(255, 255, 255, 0.8);
+  }
+
+  .date-picker {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 50;
+  }
+
+  /* ------------------End Date Picker Component---------------- */
 
   /* ------------------End Form Style---------------- */
 
@@ -430,32 +519,45 @@ const Wrapper = styled.section`
     height: 100vh;
 
     .inner-container {
+      position: unset;
       margin: auto;
       max-width: 800px;
       width: 100%;
-      height: 87vh;
+      max-height: 70vh;
       border-radius: 0.5em;
-
-      /* ------------------Thank You Package---------------- */
-      .thank-you-package-container {
-        max-width: 800px;
-        width: 100%;
-        height: 87vh;
-      }
-
-      /* ------------------End Thank You Package---------------- */
-
-      /* ------------------Form Style---------------- */
-
-      .container-date-time {
-        display: flex;
-        gap: 1.5em;
-      }
-
-      .container-date-time div {
-        flex-basis: 50%;
-      }
-      /* ------------------End Form Style---------------- */
     }
+
+    /* ------------------Thank You Package---------------- */
+    .thank-you-package-container {
+      max-width: 800px;
+      width: 100%;
+      max-height: 70vh;
+    }
+
+    /* ------------------End Thank You Package---------------- */
+
+    /* ------------------Form Style---------------- */
+    form {
+      height: 100vh;
+    }
+    input,
+    .btn-date-input,
+    select {
+      height: 4em;
+    }
+
+    textarea {
+      height: 12em;
+    }
+
+    .container-date-time {
+      display: flex;
+      gap: 1.5em;
+    }
+
+    .container-date-time div {
+      flex-basis: 50%;
+    }
+    /* ------------------End Form Style---------------- */
   }
 `;
