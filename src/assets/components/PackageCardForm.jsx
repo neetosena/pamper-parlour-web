@@ -206,7 +206,7 @@ const PackageCardForm = ({
                 />
                 <input type="hidden" name="bot-field" />
 
-                <input type="hidden" name="subject" />
+                <input type="hidden" name="subject" value="" />
 
                 <div className="container-date-time">
                   <div>
