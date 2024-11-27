@@ -484,7 +484,6 @@ const Wrapper = styled.section`
     transform: translate(-50%, -50%);
     display: flex;
     justify-content: flex-end;
-    z-index: 60;
   }
 
   .btn-date-close svg {
@@ -523,15 +522,34 @@ const Wrapper = styled.section`
       margin: auto;
       max-width: 800px;
       width: 100%;
-      max-height: 70vh;
+      max-height: 779px;
       border-radius: 0.5em;
+    }
+
+    .title-name {
+      margin-top: -4em;
+      padding-top: 3em;
+    }
+
+    .icon-close {
+      position: unset;
+      display: flex;
+      justify-content: flex-end;
+      padding-top: 2em;
+      padding-right: 2em;
+      z-index: 3;
     }
 
     /* ------------------Thank You Package---------------- */
     .thank-you-package-container {
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
       max-width: 800px;
       width: 100%;
-      max-height: 70vh;
+      max-height: 779px;
+      height: 100%;
+      border-radius: 0.5em;
     }
 
     /* ------------------End Thank You Package---------------- */
