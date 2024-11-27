@@ -22,11 +22,16 @@ const ContactForm = () => {
   };
 
   const onSubmit = (values, { setSubmitting, resetForm }) => {
+    //Prepare the subject line dinamically
+    const subject = `From Contact Form ${values.name} | ${values.email}`;
+    // Prepare the date for submission
+    const formData = { ...values, subject };
+
     // Use Netlify's form submissions endpoint
     fetch("/", {
       method: "POST",
       headers: { "Content-Type": "application/x-www-form-urlencoded" },
-      body: encode({ "form-name": "pamper-parlour-contact", ...values }),
+      body: encode({ "form-name": "pamper-parlour-contact", ...formData }),
     })
       .then(() => {
         console.log("Form sucessfully submitted");
@@ -76,6 +81,7 @@ const ContactForm = () => {
               value="pamper-parlour-contact"
             />
             <input type="hidden" name="bot-field" />
+            <input type="hidden" name="subject" value="" />
             <div>
               <Field
                 className="input-field"
