@@ -50,13 +50,17 @@ const PackageCardForm = ({
     //   : null;
 
     // Prepare the subject line dynamically
-    const subject = `${packageName} Package ${values.name || "Unknow Name"}`;
+    const subject = `${packageName} Package | ${values.name || "Unknow Name"}`;
+
+    // Prepare the message line dynamically
+    const message = `|||| ${packageName} Package |||| ${values.message}`;
 
     // Prepare the date for submission
     const formData = {
       ...values,
       date: formattedDate,
       subject,
+      message,
     };
     // Use Netlify's form submissions endpoint
     fetch("/", {
@@ -66,6 +70,7 @@ const PackageCardForm = ({
     })
       .then(() => {
         console.log("Form sucessfully submitted");
+
         resetForm();
         setSubmitting(false);
         setSubmitted(true);
@@ -201,7 +206,7 @@ const PackageCardForm = ({
                 />
                 <input type="hidden" name="bot-field" />
 
-                <input type="hidden" name="subject" value="" />
+                <input type="hidden" name="subject" />
 
                 <div className="container-date-time">
                   <div>
