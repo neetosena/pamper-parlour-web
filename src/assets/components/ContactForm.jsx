@@ -31,7 +31,7 @@ const ContactForm = () => {
     fetch("/", {
       method: "POST",
       headers: { "Content-Type": "application/x-www-form-urlencoded" },
-      body: encode({ "form-name": "pamper-parlour-contact", ...values }),
+      body: encode({ "form-name": "contact", ...values }),
     })
       .then(() => {
         console.log("Form sucessfully submitted");
@@ -70,21 +70,17 @@ const ContactForm = () => {
       >
         {({ isSubmitting }) => (
           <Form
-            name="pamper-parlour-contact"
+            name="contact"
             method="POST"
             data-netlify="true"
             netlify-honeypot="bot-field"
           >
-            <input
-              type="hidden"
-              name="form-name"
-              value="pamper-parlour-contact"
-            />
+            <input type="hidden" name="form-name" value="contact" />
             <input type="hidden" name="bot-field" />
             <input
               type="hidden"
               name="subject"
-              value={`From Contact Form ${initialValues.name} | ${initialValues.email}`}
+              value={`${initialValues.name}`}
             />
             <div>
               <Field
