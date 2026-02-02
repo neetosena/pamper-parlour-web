@@ -2,7 +2,7 @@ import { forwardRef, useEffect, useRef, useState } from "react";
 import { NavLink, useLocation } from "react-router-dom";
 import { navLinks } from "../utils/data";
 
-import Logo from "../images/logo_pamper_parlour.svg";
+import Logo from "../images/logo_pamper_parlour-2.svg";
 import LogoMenu from "../images/logo-menu-hamburguer.svg";
 import { HiMenuAlt1 } from "react-icons/hi";
 import { IoClose } from "react-icons/io5";

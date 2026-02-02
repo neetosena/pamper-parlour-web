@@ -6,7 +6,7 @@ import { FaFacebookSquare } from "react-icons/fa";
 import { FaInstagramSquare } from "react-icons/fa";
 import { FaCloudDownloadAlt } from "react-icons/fa";
 
-import Logo from "../images/logo_pamper_parlour.svg";
+import Logo from "../images/logo_pamper_parlour-2.svg";
 import styled from "styled-components";
 
 const Footer = () => {

@@ -115,7 +115,7 @@ export const packages = [
     primaryColor: "#423FD7",
     secondaryColor: "#EBEBFF",
     title: "Special Offer",
-    price: "€260",
+    price: "€270",
     info: ["For 10 children", "€12.50 per extra child"],
     info2: "Monday - Thursday Excluding Bank Holidays",
     items: [
@@ -131,7 +131,7 @@ export const packages = [
     primaryColor: "#C30082",
     secondaryColor: "#FFF0F4",
     title: "Standard",
-    price: "€250",
+    price: "€260",
     info: ["For 10 children", "€10 per extra child"],
     items: [
       "Kids Champagne",
@@ -146,7 +146,7 @@ export const packages = [
     primaryColor: "#716F71",
     secondaryColor: "#F0F0F0",
     title: "Silver",
-    price: "€300",
+    price: "€310",
     info: ["For 10 children", "€12.50 per extra child"],
     items: [
       "Kids Champagne",
@@ -162,7 +162,7 @@ export const packages = [
     primaryColor: "#A28A21",
     secondaryColor: "#F9F5E7",
     title: "Gold",
-    price: "€350",
+    price: "€360",
     info: ["For 10 children", "€15 per extra child"],
     items: [
       "Kids Champagne",
@@ -171,7 +171,7 @@ export const packages = [
       "Satin Robe and Headband, to be given back at the end of treatments",
       "Donut Wall",
       "Party Bags",
-      "Pizza, Chips or Wedges, Fruit Juice and Sauces Supplied",
+      "Pizza and Chips",
     ],
   },
 ];

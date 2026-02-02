@@ -57,7 +57,10 @@ const Packages = () => {
         <h4 className="mb-[0.5em]">Joint Party</h4>
         <p>
           with 2 Birthday Girls additional,
-          <strong> €20 across all packages</strong>
+          <strong> €30 across all packages.</strong> Max 3 children
+        </p>
+        <p className="my-[0.5em]">
+          We cater for small parties min 5 children to 20. Fully Insured.
         </p>
       </div>
       {/* Card Container / Package card with touch functionality */}
